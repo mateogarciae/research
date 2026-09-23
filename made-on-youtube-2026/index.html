@@ -1,0 +1,491 @@
+<title>Made On YouTube 2026 Briefing</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#f2f4f7; --surface:#ffffff; --surface-2:#e9edf2; --line:#d5dbe3;
+  --ink:#141a22; --ink-2:#4a5563; --ink-3:#7a8594;
+  --accent:#d1332a; --accent-ink:#ffffff; --accent-soft:#fbe8e6;
+  --of:#b8261f; --of-bg:#fbe6e4;
+  --ind:#6b3fa0; --ind-bg:#ede4f7;
+  --pr:#1f5fa8; --pr-bg:#e1ebf8;
+  --es:#1d7a4f; --es-bg:#dff2e7;
+  --hi:#d1332a; --mid:#c98a12; --lo:#8a94a3;
+  --now:#1d7a4f; --now-bg:#dff2e7; --soon:#b8730a; --soon-bg:#fdf0d5; --later:#4a5563; --later-bg:#e9edf2;
+  --shadow:0 1px 2px rgba(20,26,34,.06),0 8px 24px -12px rgba(20,26,34,.18);
+  --radius:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0f1319; --surface:#171c24; --surface-2:#1f2630; --line:#2c3541;
+    --ink:#eef1f5; --ink-2:#b4bdc9; --ink-3:#7f8a98;
+    --accent:#ef5a50; --accent-ink:#14181f; --accent-soft:#3a1f1d;
+    --of:#ff8a82; --of-bg:#3a1f1d; --ind:#c3a2ef; --ind-bg:#2c2140; --pr:#8fb8f0; --pr-bg:#1b2a40; --es:#7fd3a6; --es-bg:#16311f;
+    --hi:#ef5a50; --mid:#e2a63a; --lo:#6f7a89;
+    --now:#7fd3a6; --now-bg:#16311f; --soon:#e2a63a; --soon-bg:#3a2b12; --later:#b4bdc9; --later-bg:#1f2630;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0f1319; --surface:#171c24; --surface-2:#1f2630; --line:#2c3541;
+  --ink:#eef1f5; --ink-2:#b4bdc9; --ink-3:#7f8a98;
+  --accent:#ef5a50; --accent-ink:#14181f; --accent-soft:#3a1f1d;
+  --of:#ff8a82; --of-bg:#3a1f1d; --ind:#c3a2ef; --ind-bg:#2c2140; --pr:#8fb8f0; --pr-bg:#1b2a40; --es:#7fd3a6; --es-bg:#16311f;
+  --hi:#ef5a50; --mid:#e2a63a; --lo:#6f7a89;
+  --now:#7fd3a6; --now-bg:#16311f; --soon:#e2a63a; --soon-bg:#3a2b12; --later:#b4bdc9; --later-bg:#1f2630;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--pr);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:0 64px}
+h1,h2,h3{font-family:"Bricolage Grotesque","IBM Plex Sans",system-ui,sans-serif;text-wrap:balance;margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+
+/* header */
+header{padding-block:36px 24px;border-bottom:1px solid var(--line)}
+header .top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;justify-content:space-between}
+header h1{font-size:clamp(30px,4.6vw,52px);font-weight:800;line-height:1.02;letter-spacing:-.02em}
+header h1 span{color:var(--accent)}
+header .meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;color:var(--ink-2);font-size:14px}
+header .meta b{color:var(--ink);font-weight:600}
+.lede{max-width:70ch;margin-top:16px;font-size:16px;color:var(--ink-2)}
+.lede strong{color:var(--ink);font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+
+/* tags */
+.tag{display:inline-flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap}
+.tag.of{color:var(--of);background:var(--of-bg)}
+.tag.ind{color:var(--ind);background:var(--ind-bg)}
+.tag.pr{color:var(--pr);background:var(--pr-bg)}
+.tag.es{color:var(--es);background:var(--es-bg)}
+.tag.cat{color:var(--ink-2);background:var(--surface-2)}
+.pill{display:inline-flex;align-items:center;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.04em;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.pill.now{color:var(--now);background:var(--now-bg)}
+.pill.soon{color:var(--soon);background:var(--soon-bg)}
+.pill.later{color:var(--later);background:var(--later-bg)}
+.rel{display:inline-flex;align-items:center;gap:4px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.04em;color:var(--ink-3)}
+.rel i{width:8px;height:8px;border-radius:50%;background:var(--line);display:inline-block}
+.rel[data-r="3"] i{background:var(--hi)}
+.rel[data-r="2"] i:nth-child(-n+2){background:var(--mid)}
+.rel[data-r="1"] i:nth-child(1){background:var(--lo)}
+
+/* sections */
+section{padding-block:32px 0}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin-bottom:14px}
+.sec-head h2{font-size:24px;font-weight:700;letter-spacing:-.01em}
+.sec-head p{margin:0;color:var(--ink-3);font-size:13.5px;max-width:60ch}
+
+/* essentials */
+.essentials{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.ess{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+.ess .n{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:26px;line-height:1;color:var(--accent);letter-spacing:-.02em}
+.ess h3{font-size:16.5px;font-weight:700;line-height:1.25}
+.ess p{margin:0;color:var(--ink-2);font-size:14px}
+.ess p b{color:var(--ink);font-weight:600}
+.ess .go{margin-top:auto;font-size:13px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.stat{background:var(--surface);padding:14px 14px 12px}
+.stat .v{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:26px;letter-spacing:-.02em;line-height:1.05;font-variant-numeric:tabular-nums}
+.stat .l{font-size:12.5px;color:var(--ink-2);margin-top:4px;line-height:1.35}
+.stat .s{font-size:11px;color:var(--ink-3);margin-top:4px}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-bottom:14px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+.fgroup{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.fgroup .eyebrow{margin-right:4px}
+.chip{font:inherit;font-size:13px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink-2);cursor:pointer;line-height:1.2}
+.chip:hover{border-color:var(--ink-3)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.count{margin-left:auto;font-size:12.5px;color:var(--ink-3)}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px 14px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow)}
+.card.hidden{display:none}
+.card .row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:space-between}
+.card .row .left{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.card h3{font-size:17px;font-weight:700;line-height:1.25}
+.card .what{margin:0;color:var(--ink-2);font-size:14px}
+.card .us{margin:0;font-size:14px;padding:10px 12px;border-radius:6px;background:var(--surface-2);color:var(--ink)}
+.card .us b{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:3px;font-weight:500}
+.card .src{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px;border-top:1px dashed var(--line)}
+.card .src a{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:4px 8px;border-radius:6px;border:1px solid var(--line);color:var(--ink);background:var(--surface)}
+.card .src a:hover{border-color:var(--ink-3);text-decoration:none}
+.card .src a i{width:7px;height:7px;border-radius:2px;display:inline-block;flex:none}
+.card .src a.of i{background:var(--of)}.card .src a.ind i{background:var(--ind)}.card .src a.pr i{background:var(--pr)}.card .src a.es i{background:var(--es)}
+.card .note{font-size:12px;color:var(--ink-3);margin:0}
+
+/* takes */
+.takes{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.take{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.take .who{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.take .who b{font-weight:600}
+.take p{margin:0;color:var(--ink-2);font-size:14px}
+.take q{font-style:italic;color:var(--ink)}
+.take .go{font-size:13px;margin-top:auto}
+
+/* sources */
+.srcgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.srcbox{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.srcbox h3{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.srcbox ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.srcbox li{font-size:13.5px;line-height:1.35;padding-left:12px;position:relative}
+.srcbox li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--line)}
+.srcbox li span{color:var(--ink-3)}
+.srcbox li.pending{color:var(--ink-3)}
+
+/* strategy */
+.strat{background:var(--ink);color:var(--bg);border-radius:var(--radius);padding:22px 24px}
+.strat h2{color:var(--bg);font-size:22px;margin-bottom:6px}
+.strat p.sub{margin:0 0 14px;color:color-mix(in srgb,var(--bg) 70%,transparent);font-size:14px}
+.strat ol{margin:0;padding-left:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px 24px}
+.strat li{font-size:14.5px;line-height:1.45}
+.strat li b{font-weight:600}
+
+/* verification */
+.verify{border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;background:var(--surface)}
+.verify h2{font-size:18px;margin-bottom:8px}
+.verify ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:13.5px;display:flex;flex-direction:column;gap:5px}
+footer{margin-top:28px;font-size:12.5px;color:var(--ink-3)}
+@media (max-width:520px){
+  .wrap{padding-inline:16px}
+  header{padding-block:24px 18px}
+  .count{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion:no-preference){.card,.ess{transition:transform .15s ease}.card:hover{transform:translateY(-1px)}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="top">
+    <div>
+      <div class="eyebrow">Briefing interno · Eloisa Wolf / Wolf Digital Marketing</div>
+      <h1>Made On YouTube 2026<br><span>lo que sirve para negocio</span></h1>
+    </div>
+  </div>
+  <div class="meta">
+    <div><b>Evento:</b> miércoles 23 sep 2026, Nueva York · keynote de Neal Mohan</div>
+    <div><b>Corte:</b> 23 sep 2026, mediodía (mismo día del evento)</div>
+    <div><b>Anuncios rastreados:</b> 22 · <b>Fuentes:</b> 45+</div>
+  </div>
+  <p class="lede">Un vistazo por anuncio: qué es, cuándo llega y <strong>qué significa para un negocio que usa YouTube para vender, no para entretener</strong>. Cada tarjeta enlaza a la fuente oficial y a la mejor cobertura de prensa, industria y español para hacer <em>double down</em>. Filtra por relevancia para ir directo a lo que importa.</p>
+  <div class="legend">
+    <span class="tag of">Oficial · YouTube / Google</span>
+    <span class="tag ind">Industria · Publish Press, Tubefilter, agencias</span>
+    <span class="tag pr">Prensa · TechCrunch, Variety, Reuters…</span>
+    <span class="tag es">En español · LatAm / España</span>
+    <span class="rel" data-r="3" title="Relevancia para nosotros"><i></i><i></i><i></i> alta</span>
+    <span class="rel" data-r="2"><i></i><i></i><i></i> media</span>
+    <span class="rel" data-r="1"><i></i><i></i><i></i> baja</span>
+  </div>
+</header>
+
+<section id="esencial">
+  <div class="sec-head">
+    <h2>Lo esencial en 60 segundos</h2>
+    <p>Los seis anuncios que tocan directamente cómo producimos, lanzamos y monetizamos en YouTube y en el mercado hispano.</p>
+  </div>
+  <div class="essentials">
+    <div class="ess"><div class="n">1</div><h3>Pruebas A/B de vídeo: hasta 3 cortes del mismo vídeo</h3><p>YouTube muestra tres montajes distintos y mide cuál retiene mejor. Llega en <b>2027</b>. Es CRO aplicado al gancho y al ritmo, no solo a título y miniatura.</p><a class="go" href="#c-abvideo">Ver tarjeta ↓</a></div>
+    <div class="ess"><div class="n">2</div><h3>Ask Studio revisa borradores y llega al móvil</h3><p>Subes un vídeo sin publicar y recibes feedback de ritmo, estructura y storytelling basado en tu canal, más títulos y miniaturas alternativas. <b>Ya en despliegue.</b></p><a class="go" href="#c-askstudio">Ver tarjeta ↓</a></div>
+    <div class="ess"><div class="n">3</div><h3>Doblaje en tiempo real para directos, inglés ↔ español primero</h3><p>Piloto a <b>inicios de 2027</b>. Un webinar o lanzamiento en vivo en español podrá escucharse en inglés al momento. El 40 % del watch time de directos ya viene de fuera del país del creador.</p><a class="go" href="#c-livedub">Ver tarjeta ↓</a></div>
+    <div class="ess"><div class="n">4</div><h3>Series de Shorts con temporadas y episodios</h3><p>Miniaturas propias y reproducción secuencial, también en TV. <b>Disponible desde hoy</b> para canales del Programa de Partners. Un curso o una historia de cliente se vuelve una serie que se ve de corrido.</p><a class="go" href="#c-shortsseries">Ver tarjeta ↓</a></div>
+    <div class="ess"><div class="n">5</div><h3>Comercio: afiliados a 35 países y pitches a marcas con IA</h3><p>El programa de afiliados de YouTube Shopping llega a <b>35 países antes de fin de año</b> (con Amazon internacional). Ask Studio redactará respuestas a briefs de marcas. Creator Partnerships ya opera en 20 países.</p><a class="go" href="#c-affiliates">Ver tarjeta ↓</a></div>
+    <div class="ess"><div class="n">6</div><h3>Comunidades de pago solo para miembros</h3><p>Espacios tipo VIP dentro de YouTube más nuevas vías de apoyo de fans. Compite de frente con una membresía externa. Fecha y detalles pendientes en el post oficial.</p><a class="go" href="#c-paidcomm">Ver tarjeta ↓</a></div>
+  </div>
+</section>
+
+<section id="cifras">
+  <div class="sec-head">
+    <h2>Cifras que YouTube puso sobre la mesa</h2>
+    <p>Datos citados en el keynote y en los posts oficiales, según la cobertura. Útiles para el boletín, verificar antes de citar.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="v">40 %+</div><div class="l">del watch time de directos viene de fuera del país del creador</div><div class="s">Post oficial de Live</div></div>
+    <div class="stat"><div class="v">2×</div><div class="l">más clics con etiquetas de producto que con links en la descripción</div><div class="s">Post oficial de monetización</div></div>
+    <div class="stat"><div class="v">13×</div><div class="l">crecimiento del GMV de YouTube Shopping en dos años</div><div class="s">Post oficial / Publish Press</div></div>
+    <div class="stat"><div class="v">35</div><div class="l">países con programa de afiliados antes de fin de 2026</div><div class="s">Reuters / post oficial</div></div>
+    <div class="stat"><div class="v">140 M</div><div class="l">usuarios usaron Ask YouTube en junio, +500 % desde diciembre</div><div class="s">TechCrunch</div></div>
+    <div class="stat"><div class="v">300 M</div><div class="l">personas interactúan con Posts (comunidad) cada día</div><div class="s">9to5Google</div></div>
+    <div class="stat"><div class="v">6 500 M</div><div class="l">vistas de microdramas en el primer semestre de 2026, TV +90 %</div><div class="s">TechCrunch / Variety</div></div>
+    <div class="stat"><div class="v">&gt;50 %</div><div class="l">de los 100 creadores top tienen la TV como pantalla principal</div><div class="s">Deadline</div></div>
+    <div class="stat"><div class="v">3 000+</div><div class="l">actualizaciones de producto en 2026 según Mohan</div><div class="s">Deadline</div></div>
+    <div class="stat"><div class="v">72 %</div><div class="l">de creadores de 14 a 44 años en EE. UU. usó IA para crear o editar este año</div><div class="s">La Cuarta / post oficial</div></div>
+  </div>
+</section>
+
+<section id="anuncios">
+  <div class="sec-head">
+    <h2>Todos los anuncios, uno por tarjeta</h2>
+    <p>Qué es · cuándo llega · qué hacemos con esto. Los links de cada tarjeta van a la fuente oficial y a la mejor cobertura.</p>
+  </div>
+  <div class="filters" role="group" aria-label="Filtros">
+    <div class="fgroup" data-filter="rel"><span class="eyebrow">Relevancia</span>
+      <button class="chip" aria-pressed="true" data-v="all">Todas</button>
+      <button class="chip" aria-pressed="false" data-v="3">Alta</button>
+      <button class="chip" aria-pressed="false" data-v="2">Media</button>
+      <button class="chip" aria-pressed="false" data-v="1">Baja</button>
+    </div>
+    <div class="fgroup" data-filter="cat"><span class="eyebrow">Tema</span>
+      <button class="chip" aria-pressed="true" data-v="all">Todos</button>
+      <button class="chip" aria-pressed="false" data-v="studio">Studio e IA</button>
+      <button class="chip" aria-pressed="false" data-v="dinero">Monetización</button>
+      <button class="chip" aria-pressed="false" data-v="live">Directos</button>
+      <button class="chip" aria-pressed="false" data-v="shorts">Shorts y TV</button>
+      <button class="chip" aria-pressed="false" data-v="descubrir">Descubrimiento</button>
+      <button class="chip" aria-pressed="false" data-v="podcast">Podcast y música</button>
+      <button class="chip" aria-pressed="false" data-v="comunidad">Comunidad y seguridad</button>
+    </div>
+    <div class="fgroup" data-filter="when"><span class="eyebrow">Cuándo</span>
+      <button class="chip" aria-pressed="true" data-v="all">Todo</button>
+      <button class="chip" aria-pressed="false" data-v="now">Ya</button>
+      <button class="chip" aria-pressed="false" data-v="soon">Este año</button>
+      <button class="chip" aria-pressed="false" data-v="later">2027</button>
+    </div>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="voces">
+  <div class="sec-head">
+    <h2>Qué dice la industria y la prensa que el blog oficial no dice</h2>
+    <p>Ángulos y escepticismo, con quién lo dijo. La mayoría de educadores de YouTube todavía no publica su reacción.</p>
+  </div>
+  <div class="takes">
+    <div class="take"><div class="who"><b>The Publish Press · Colin y Samir</b><span class="tag ind">Industria</span></div><p>Su titular es <q>Video A/B Testing Comes To YouTube</q>: para ellos la noticia es probar hasta tres cortes de un vídeo largo y las miniaturas dinámicas por segmento, aplicables también al catálogo antiguo. Enmarcan el doblaje en vivo y el shopping localizado como la forma de convertir alcance global en negocio. Estaban en el evento y anunciaron un programa posterior en su canal.</p><a class="go" href="https://news.thepublishpress.com/p/video-a-b-testing-comes-to-youtube">Leer el boletín →</a></div>
+    <div class="take"><div class="who"><b>Tubefilter</b><span class="tag ind">Industria</span></div><p>Titular con cautela: <q>YouTube is using AI to tinker with everything, from thumbnails to homepages to entire videos</q>. Lee el evento como personalización por IA en los dos lados de la plataforma y cita el post de Mohan: Studio se convierte en un <q>socio creativo de principio a fin</q>. Recuerda que las pruebas A/B llevan expandiéndose desde 2023.</p><a class="go" href="https://www.tubefilter.com/2026/09/23/made-on-youtube-2026-ai-personalization-creator-tools/">Leer el artículo →</a></div>
+    <div class="take"><div class="who"><b>Wall Street Journal · vía Techmeme</b><span class="tag pr">Prensa</span></div><p>El ángulo de negocio más fuerte: las herramientas son la jugada de retención de YouTube frente a Netflix, Peacock y Amazon, que cortejan a los creadores web. YouTube financia programas directamente y amplía el soporte a acuerdos con marcas para retener talento. Cita de Mohan: <q>porque creamos un hogar para los creadores, se han creado todas estas otras oportunidades</q>.</p><a class="go" href="https://www.techmeme.com/260923/p26">Ver en Techmeme →</a></div>
+    <div class="take"><div class="who"><b>Bloomberg · Lucas Shaw</b><span class="tag pr">Prensa</span></div><p>Coachella eligió a YouTube sobre ofertas de Netflix y Amazon por su audiencia más grande y global y por el acceso gratis sin registro. La misma lógica de alcance sin fricción aplica al contenido de marca.</p><a class="go" href="https://www.bloomberg.com/news/articles/2026-09-23/youtube-beats-amazon-netflix-to-clinch-coachella-livestream-through-2030">Leer en Bloomberg →</a></div>
+    <div class="take"><div class="who"><b>TechCrunch</b><span class="tag pr">Prensa</span></div><p>Custom Feeds no es pionero: sigue a Threads, Instagram, X y Spotify en <q>construye tu propio algoritmo</q>. En shopping, Ask YouTube pasa a ser un asistente de compra con tablas comparativas. Sobre las series de Shorts: competencia directa con ReelShort, DramaBox y PineDrama de TikTok.</p><a class="go" href="https://techcrunch.com/2026/09/23/youtube-will-let-you-build-your-own-algorithm-with-ai/">Leer sobre Custom Feeds →</a></div>
+    <div class="take"><div class="who"><b>Escepticismo recogido</b><span class="tag pr">Prensa</span></div><p>Android Headlines y Memeburn recogen el temor de creadores a que los resúmenes de Ask YouTube frenen los clics a los vídeos originales; YouTube responde que mostrará títulos y canales de forma prominente. Android Police calificó Custom Feeds como <q>solución a un problema que no existe</q> (pieza posiblemente previa al evento).</p><a class="go" href="https://www.androidheadlines.com/2026/09/youtube-expands-ai-search-personalized-feeds.html">Leer →</a></div>
+    <div class="take"><div class="who"><b>Global Star Digital · agencia de influencers</b><span class="tag ind">Industria</span></div><p>Sobre el hub de Creator Partnerships: los briefs de marca se distribuyen a creadores emparejados por Gemini según afinidad de audiencia y menciones orgánicas, y el tiempo de cierre de una colaboración baja <q>de dos semanas a menos de 48 horas</q>.</p><a class="go" href="https://www.globalstardigital.com/youtube-creator-landscape/how-youtubes-new-ai-powered-creator-partnerships-hub-is-changing-influencer-marketing-in-2026/">Leer →</a></div>
+    <div class="take"><div class="who"><b>Ecosistema Startup · LatAm</b><span class="tag es">Español</span></div><p>La cobertura en español más desglosada por producto: tres piezas sobre el editor por chat (2027), las funciones de IA en Studio y el <q>agente IA que crea pitches a marcas</q>. Agencia Andina y La Cuarta son las que precisan que el doblaje en vivo arranca inglés-español.</p><a class="go" href="https://ecosistemastartup.com/youtube-activa-agente-ia-que-crea-pitches-a-marcas/">Leer →</a></div>
+  </div>
+</section>
+
+<section id="estrategia">
+  <div class="strat">
+    <h2>Lectura estratégica hacia 2027</h2>
+    <p class="sub">Para el boletín dominical y la línea editorial acordada el 21 de septiembre: perspectiva ejecutiva, no lista de features.</p>
+    <ol>
+      <li><b>YouTube quiere ser tu estratega.</b> Ask Studio revisa borradores, propone títulos y miniaturas, prueba tres cortes y reempaqueta el catálogo antiguo solo. El diferencial de una agencia o academia deja de ser "saber optimizar" y pasa a ser criterio, oferta y conversión fuera de YouTube.</li>
+      <li><b>El idioma deja de ser frontera.</b> Doblaje bajo demanda ya abierto a todos, y en 2027 doblaje en vivo inglés ↔ español. Un canal en español puede planear audiencia bilingüe desde ahora.</li>
+      <li><b>El descubrimiento se vuelve por intención.</b> Custom Feeds y Ask YouTube premian títulos, descripciones y transcripciones que responden a un prompt tipo "aprende a vender con YouTube", no al volumen de suscriptores.</li>
+      <li><b>Comercio es la tesis de monetización.</b> Afiliados a 35 países, etiquetado automático de productos, tablas comparativas en la búsqueda y briefs de marca dentro de Studio. Para clientes con producto, hay que tener el catálogo listo.</li>
+      <li><b>La TV es la pantalla principal.</b> Más de la mitad de los top 100 se ven en la sala. Diseñar para 3 metros: texto grande, ritmo más pausado, series.</li>
+      <li><b>Comunidades de pago dentro de YouTube.</b> Compiten con membresías externas. Vale la pena vigilar el detalle antes de cerrar el diseño del MVP de membresía.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="fuentes">
+  <div class="sec-head">
+    <h2>Fuentes por tipo</h2>
+    <p>Para hacer double down. Las oficiales primero. Los educadores que aún no publican van marcados para revisar en 24 a 72 horas.</p>
+  </div>
+  <div class="srcgrid">
+    <div class="srcbox"><h3><span class="tag of">Oficial</span> YouTube y Google</h3><ul>
+      <li><a href="https://blog.youtube/madeonyoutube/">Hub Made On YouTube 2026</a> <span>· todos los posts y el vídeo del evento</span></li>
+      <li><a href="https://blog.youtube/news-and-events/innovation-youtube-era-made-on-viewers-creators/">Post principal de Neal Mohan</a> <span>· todos los anuncios</span></li>
+      <li><a href="https://blog.google/products-and-platforms/products/youtube/made-on-youtube-updates-2026/">The Keyword: resumen de Google</a> <span>· espectadores, creadores, live, audio</span></li>
+      <li><a href="https://blog.youtube/news-and-events/made-on-youtube-new-tools-power-creation-journey/">Herramientas para creadores</a> <span>· Studio, Ask Studio, A/B, miniaturas, likeness</span></li>
+      <li><a href="https://blog.youtube/news-and-events/made-on-youtube-creator-monetization-shopping/">Monetización, shopping y marcas</a> <span>· afiliados 35 países, Creator Partnerships</span></li>
+      <li><a href="https://blog.youtube/news-and-events/made-on-youtube-live-tools-fan-funding-dubbing/">Live: doblaje, showdowns, apoyo de fans</a></li>
+      <li><a href="https://blog.youtube/news-and-events/made-on-youtube-creators-shorts-series-tv-features/">Series de Shorts y TV</a></li>
+      <li><a href="https://blog.youtube/news-and-events/made-on-youtube-viewer-custom-feeds-shopping-tools/">Para espectadores: Custom Feeds y Ask YouTube</a></li>
+      <li><a href="https://blog.youtube/news-and-events/made-on-youtube-music-new-discovery-features/">YouTube Music: Ask Music y Podcast Lineup</a></li>
+      <li class="pending">Blog de YouTube en español (es-419 / es-es): sin post del evento al corte. Revisar mañana.</li>
+    </ul></div>
+    <div class="srcbox"><h3><span class="tag ind">Industria</span> Voces de YouTube</h3><ul>
+      <li><a href="https://news.thepublishpress.com/p/video-a-b-testing-comes-to-youtube">The Publish Press (Colin y Samir)</a> <span>· publicado hoy; programa post-evento anunciado</span></li>
+      <li><a href="https://www.tubefilter.com/2026/09/23/made-on-youtube-2026-ai-personalization-creator-tools/">Tubefilter</a> <span>· publicado hoy</span></li>
+      <li><a href="https://www.globalstardigital.com/youtube-creator-landscape/how-youtubes-new-ai-powered-creator-partnerships-hub-is-changing-influencer-marketing-in-2026/">Global Star Digital</a> <span>· hub de Creator Partnerships</span></li>
+      <li><a href="https://prodvigate.com/blog/youtube-updates-2026/">Prodvigate</a> <span>· desglose de novedades</span></li>
+      <li><a href="https://fourthwall.com/blog/youtubes-new-features">Fourthwall</a> <span>· playbook 2026</span></li>
+      <li><a href="https://www.tubebuddy.com/blog/youtube-ai-thumbnail-generator/">TubeBuddy: cómo usar el generador de miniaturas de Ask Studio</a> <span>· previo, útil como guía práctica</span></li>
+      <li class="pending">vidIQ, TubeBuddy, Think Media (Sean Cannell), 1 of 10, Paddy Galloway, Jon Youshaei, Jay Clouse, Roberto Blake, Film Booth, Lia Haberman (ICYMI): sin pieza del evento al corte. Revisar 24 a 72 h.</li>
+    </ul></div>
+    <div class="srcbox"><h3><span class="tag pr">Prensa</span> Tech y negocios</h3><ul>
+      <li><a href="https://techcrunch.com/2026/09/23/youtube-adds-new-creator-tools-like-video-a-b-testing-dynamic-thumbnails-and-live-dubbing/">TechCrunch: A/B de vídeo, miniaturas dinámicas, doblaje en vivo</a></li>
+      <li><a href="https://techcrunch.com/2026/09/23/youtube-doubles-down-on-video-shopping-with-ai-powered-ask-youtube-feature/">TechCrunch: Ask YouTube y shopping</a></li>
+      <li><a href="https://techcrunch.com/2026/09/23/youtube-is-making-comments-more-fun-and-fandom-more-lucrative-for-creators/">TechCrunch: comunidades de pago y comentarios</a></li>
+      <li><a href="https://techcrunch.com/2026/09/23/youtubes-new-short-series-feature-brings-episodic-viewing-to-shorts/">TechCrunch: series de Shorts</a></li>
+      <li><a href="https://techcrunch.com/2026/09/23/youtubes-conversational-video-editing-tool-lets-creators-make-edits-in-natural-language/">TechCrunch: editor conversacional</a></li>
+      <li><a href="https://9to5google.com/2026/09/23/made-on-youtube-2026/">9to5Google: rundown completo</a></li>
+      <li><a href="https://www.tradingview.com/news/reuters.com,2026:newsml_L6N45F0KL:0-youtube-unveils-ai-creator-tools-shopping-features-at-annual-event/">Reuters (vía TradingView)</a></li>
+      <li><a href="https://deadline.com/2026/09/made-on-youtube-living-room-viewing-live-shorts-1237111143/">Deadline: la sala como pantalla principal</a></li>
+      <li><a href="https://variety.com/2026/biz/news/youtube-coachella-2030-made-on-youtube-1236872595/">Variety</a> · <a href="https://www.fastcompany.com/91611367/youtube-is-getting-in-on-the-microdrama-craze">Fast Company</a> · <a href="https://thenextweb.com/news/youtube-custom-feeds-ai-creator-tools-netflix">The Next Web</a> · <a href="https://www.engadget.com/2266446/youtube-will-soon-let-you-generate-custom-feeds-and-use-gifs-in-comments/">Engadget</a> · <a href="https://www.thewrap.com/made-on-youtube-living-room-viewership-ai-interview/">TheWrap (entrevista a Mohan)</a></li>
+      <li class="pending">Digiday, Adweek, Marketing Brew, Social Media Today, Search Engine Land: sin pieza del evento indexada al corte.</li>
+    </ul></div>
+    <div class="srcbox"><h3><span class="tag es">Español</span> LatAm y España</h3><ul>
+      <li><a href="https://www.eluniversal.com.mx/techbit/youtube-apuesta-por-ia-creadores-y-nuevas-formas-de-ver-contenido/">El Universal (México)</a> <span>· panorámica del evento</span></li>
+      <li><a href="https://forbes.com.mx/youtube-presenta-herramientas-de-ia-y-funciones-de-compra-en-su-evento-anual/">Forbes México</a> <span>· ángulo IA y compras</span></li>
+      <li><a href="https://andina.pe/agencia/noticia-made-on-youtube-2026-2027-se-vienen-cambios-live-incluyendo-doblaje-automatico-1093000.aspx">Agencia Andina (Perú)</a> <span>· Live y doblaje inglés-español</span></li>
+      <li><a href="https://www.lacuarta.com/tendencias/noticia/youtube-apuesta-por-la-ia-transmisiones-traducidas-y-nuevas-formas-de-descubrir-videos-y-musica/">La Cuarta (Chile)</a> <span>· afiliados 35 países, datos de IA</span></li>
+      <li><a href="https://ecosistemastartup.com/youtube-studio-integra-nuevas-funciones-ia-para-creadores/">Ecosistema Startup: Studio</a> · <a href="https://ecosistemastartup.com/youtube-llevara-edicion-de-video-por-chat-con-ia-en-2027/">editor por chat</a> · <a href="https://ecosistemastartup.com/youtube-activa-agente-ia-que-crea-pitches-a-marcas/">pitches a marcas</a></li>
+      <li><a href="https://blog.youtube/intl/es-419/news-and-events/youtube-shopping-llega-a-mexico-y-argentina-de-la-mano-de-mercado-libre/">Contexto: YouTube Shopping en México y Argentina con Mercado Libre</a> <span>· junio 2026</span></li>
+      <li class="pending">Xataka, Hipertextual, Genbeta, El País, Infobae, Milenio, Marketing4eCommerce, PuroMarketing, Merca2.0 y referentes (Romuald Fons, Vilma Núñez, Juan Merodio, Emprende Aprendiendo, Trucos de YouTube): sin pieza al corte. Esperable en 24 a 48 h.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="contexto">
+  <div class="sec-head">
+    <h2>Contexto 2026 que la prensa mezcla con el evento</h2>
+    <p>No se anunció hoy, pero explica varios anuncios. Nada nuevo para compradores de Google Ads esta semana.</p>
+  </div>
+  <div class="srcgrid">
+    <div class="srcbox"><h3>NewFronts · 23 mar 2026</h3><ul><li><a href="https://blog.youtube/news-and-events/youtube-creator-partnerships-newfronts-2026/">BrandConnect pasa a ser YouTube Creator Partnerships</a> <span>· matching con Gemini, dentro de Studio, Google Ads y DV360</span></li></ul></div>
+    <div class="srcbox"><h3>Brandcast · 13 may 2026</h3><ul><li><a href="https://blog.youtube/news-and-events/brandcast-2026-highlights/">Todo lo anunciado para anunciantes</a> <span>· patrocinios custom, Buy with Google Pay en TV, Affiliate Partnerships Boost</span></li></ul></div>
+    <div class="srcbox"><h3>Doblaje automático · feb 2026</h3><ul><li><a href="https://blog.youtube/news-and-events/youtube-auto-dubbing-expressive-speech/">Abierto a todos, 27 idiomas, voz expresiva en español</a> <span>· base del doblaje en vivo de 2027</span></li></ul></div>
+    <div class="srcbox"><h3>Carta del CEO · ene 2026</h3><ul><li><a href="https://blog.youtube/inside-youtube/the-future-of-youtube-2026/">Prioridades de YouTube para 2026</a> <span>· TV, IA, creadores como estudios</span></li></ul></div>
+  </div>
+</section>
+
+<section id="verificacion">
+  <div class="verify">
+    <h2>Cómo se hizo y qué verificar antes de publicar</h2>
+    <ul>
+      <li>Seis agentes en paralelo: fuentes oficiales, prensa tech y negocios, industria de YouTube, ángulo marcas y B2B, cobertura en español y vídeos del evento. Corte al mediodía del 23 de septiembre.</li>
+      <li>La red de esta sesión bloqueó la lectura completa de páginas externas, así que todo viene de resúmenes de resultados de búsqueda. Las URLs son exactas; las cifras y fechas conviene confirmarlas en el post oficial antes de citarlas en el boletín.</li>
+      <li>Discrepancias detectadas: crecimiento de microdramas (+50 % watch time en TechCrunch vs +60 % en Variety); alcance del A/B de vídeo (largo vs Shorts; Publish Press dice largo, Shorts en 2027); Custom Feeds ("el mes que viene" en TechCrunch vs "pronto" en Engadget); solo Andina y La Cuarta precisan inglés-español como idiomas iniciales del doblaje en vivo.</li>
+      <li>Sin confirmar: lista de los 35 países de afiliados (hoy en LatAm solo México, Argentina y Brasil); si el editor conversacional entenderá español; disponibilidad por país de Custom Feeds y Ask YouTube; detalles y fecha de las comunidades de pago.</li>
+      <li>No apareció ningún vídeo oficial del keynote indexado en youtube.com al corte; el hub oficial debería tenerlo embebido.</li>
+    </ul>
+  </div>
+  <footer>Briefing preparado el 23 de septiembre de 2026 para el equipo de Eloisa Wolf. Fuente del archivo: repositorio research, carpeta made-on-youtube-2026.</footer>
+</section>
+</div>
+
+<script>
+const OF="of",IND="ind",PR="pr",ES="es";
+const A=[
+{id:"abvideo",cat:"studio",when:"later",whenL:"2027",rel:3,t:"Pruebas A/B de vídeo: hasta tres cortes",
+ w:"Subes hasta tres montajes del mismo vídeo y YouTube mide cuál retiene mejor la atención. Extiende las pruebas A/B de título y miniatura (más de 40 millones realizadas) al vídeo en sí. Publish Press lo sitúa en vídeos largos a partir del año que viene; la versión para Shorts, en 2027.",
+ u:"Preparar tres ganchos distintos por vídeo insignia y medir el que convierte, como se prueba una landing. Cambia cómo enseñamos 'el primer minuto' en YouTube Mastery.",
+ s:[[OF,"Post oficial: herramientas",'https://blog.youtube/news-and-events/made-on-youtube-new-tools-power-creation-journey/'],[IND,"Publish Press",'https://news.thepublishpress.com/p/video-a-b-testing-comes-to-youtube'],[PR,"TechCrunch",'https://techcrunch.com/2026/09/23/youtube-adds-new-creator-tools-like-video-a-b-testing-dynamic-thumbnails-and-live-dubbing/'],[ES,"Ecosistema Startup",'https://ecosistemastartup.com/youtube-studio-integra-nuevas-funciones-ia-para-creadores/']]},
+{id:"askstudio",cat:"studio",when:"now",whenL:"En despliegue",rel:3,t:"Ask Studio revisa borradores y llega a iOS y Android",
+ w:"Compartes un vídeo sin publicar y Ask Studio da feedback de ritmo, estructura y storytelling personalizado con tu contenido previo y los comentarios de tu audiencia. Propone títulos y miniaturas alternativas y explica por qué un vídeo funcionó o no. La app móvil de Studio incorpora Ask Studio.",
+ u:"Un 'segundo par de ojos' gratis antes de publicar para clientes y para el canal propio. Hay que probarlo con un borrador real esta semana y decidir cómo lo integramos al SOP de publicación.",
+ s:[[OF,"Post oficial: herramientas",'https://blog.youtube/news-and-events/made-on-youtube-new-tools-power-creation-journey/'],[PR,"TechCrunch: Studio app",'https://techcrunch.com/2026/09/23/youtube-releases-new-ai-features-for-creators-within-its-studio-app/'],[ES,"El Universal",'https://www.eluniversal.com.mx/techbit/youtube-apuesta-por-ia-creadores-y-nuevas-formas-de-ver-contenido/']]},
+{id:"dynthumb",cat:"studio",when:"soon",whenL:"Fin de 2026",rel:3,t:"Miniaturas dinámicas y refresco automático del catálogo",
+ w:"Subes hasta tres miniaturas y YouTube muestra la mejor a cada segmento de audiencia. Studio vigila el rendimiento y cambia una miniatura floja de forma proactiva. Ask Studio puede correr en segundo plano revisando vídeos antiguos para sugerir y probar miniaturas nuevas.",
+ u:"Los vídeos evergreen de captación (webinars, explicativos) pueden recuperar CTR sin tocar nada. Para clientes con catálogo grande es el argumento de 'auditoría de catálogo' convertido en feature.",
+ s:[[OF,"Post oficial: herramientas",'https://blog.youtube/news-and-events/made-on-youtube-new-tools-power-creation-journey/'],[PR,"TechCrunch",'https://techcrunch.com/2026/09/23/youtube-adds-new-creator-tools-like-video-a-b-testing-dynamic-thumbnails-and-live-dubbing/'],[IND,"Tubefilter",'https://www.tubefilter.com/2026/09/23/made-on-youtube-2026-ai-personalization-creator-tools/']]},
+{id:"aithumb",cat:"studio",when:"now",whenL:"En despliegue",rel:2,t:"Miniaturas y títulos generados al estilo del canal",
+ w:"Studio genera miniaturas que imitan la identidad visual del canal y títulos a partir del contenido del vídeo. TubeBuddy ya publicó una guía del generador de miniaturas de Ask Studio que empezó a salir en verano.",
+ u:"Consistencia de marca sin diseñador para canales pequeños. Riesgo: homogeneiza la estética; el criterio de packaging sigue siendo nuestro valor.",
+ s:[[OF,"Post oficial: herramientas",'https://blog.youtube/news-and-events/made-on-youtube-new-tools-power-creation-journey/'],[IND,"TubeBuddy: guía",'https://www.tubebuddy.com/blog/youtube-ai-thumbnail-generator/']]},
+{id:"livedub",cat:"live",when:"later",whenL:"Piloto inicio 2027",rel:3,t:"Doblaje automático en tiempo real para directos",
+ w:"Traduce tu voz mientras hablas y el espectador escucha el directo en su idioma. Arranca en piloto a inicios de 2027, según Andina y La Cuarta con inglés ↔ español como primer par. YouTube cita que más del 40 % del watch time de directos viene de fuera del país del creador.",
+ u:"Lanzamientos en vivo y webinars en español con audiencia angloparlante sin producir dos emisiones. Es el anuncio más relevante para el mercado hispano y para nuestros eventos en vivo.",
+ s:[[OF,"Post oficial: Live",'https://blog.youtube/news-and-events/made-on-youtube-live-tools-fan-funding-dubbing/'],[ES,"Agencia Andina",'https://andina.pe/agencia/noticia-made-on-youtube-2026-2027-se-vienen-cambios-live-incluyendo-doblaje-automatico-1093000.aspx'],[ES,"La Cuarta",'https://www.lacuarta.com/tendencias/noticia/youtube-apuesta-por-la-ia-transmisiones-traducidas-y-nuevas-formas-de-descubrir-videos-y-musica/'],[PR,"TechCrunch",'https://techcrunch.com/2026/09/23/youtube-adds-new-creator-tools-like-video-a-b-testing-dynamic-thumbnails-and-live-dubbing/']]},
+{id:"shortsseries",cat:"shorts",when:"now",whenL:"Desde hoy (YPP)",rel:3,t:"Series de Shorts: temporadas y episodios",
+ w:"Los Shorts se organizan en temporadas y episodios con miniaturas personalizadas y reproducción secuencial, también en TV. Disponible desde hoy para canales del Programa de Partners en web, móvil y TV. YouTube cita 6 500 millones de vistas de microdramas en el primer semestre y +90 % en TV.",
+ u:"Un curso corto, una serie de errores comunes o una historia de cliente en 8 episodios con autoplay. Formato de captación con estructura nativa, sin depender de que el algoritmo encadene.",
+ s:[[OF,"Post oficial: Shorts y TV",'https://blog.youtube/news-and-events/made-on-youtube-creators-shorts-series-tv-features/'],[PR,"TechCrunch",'https://techcrunch.com/2026/09/23/youtubes-new-short-series-feature-brings-episodic-viewing-to-shorts/'],[PR,"Fast Company",'https://www.fastcompany.com/91611367/youtube-is-getting-in-on-the-microdrama-craze']]},
+{id:"affiliates",cat:"dinero",when:"soon",whenL:"Fin de 2026",rel:3,t:"Afiliados de YouTube Shopping a 35 países, con Amazon internacional",
+ w:"El programa de afiliados llega a 35 países antes de fin de año e incorpora más partners, incluido Amazon fuera de EE. UU. (India y Brasil en las próximas semanas). Datos: 1,3 millones de creadores en el programa, GMV multiplicado por 13 en dos años, etiquetas de producto con el doble de clics que los links de descripción. En LatAm hoy están México y Argentina vía Mercado Libre.",
+ u:"Vigilar si entran Colombia, Chile, Perú y España. Para clientes con producto físico o catálogo, preparar Merchant Center y una estrategia de afiliados nicho.",
+ s:[[OF,"Post oficial: monetización",'https://blog.youtube/news-and-events/made-on-youtube-creator-monetization-shopping/'],[PR,"Reuters",'https://www.tradingview.com/news/reuters.com,2026:newsml_L6N45F0KL:0-youtube-unveils-ai-creator-tools-shopping-features-at-annual-event/'],[ES,"Forbes México",'https://forbes.com.mx/youtube-presenta-herramientas-de-ia-y-funciones-de-compra-en-su-evento-anual/'],[ES,"Contexto: Mercado Libre",'https://blog.youtube/intl/es-419/news-and-events/youtube-shopping-llega-a-mexico-y-argentina-de-la-mano-de-mercado-libre/']]},
+{id:"partnerships",cat:"dinero",when:"soon",whenL:"20 países · IA 'pronto'",rel:3,t:"Creator Partnerships y Ask Studio para responder briefs de marcas",
+ w:"Creator Partnerships (ex BrandConnect, integrado en Studio, Google Ads y DV360) ya opera en 20 países y ayuda a que las marcas encuentren creadores. Ask Studio pronto redactará respuestas a briefs, materiales de pitch y ayudará a cerrar acuerdos. Una agencia reporta que el cierre pasa de dos semanas a menos de 48 horas.",
+ u:"Dos lados: nuestros clientes-creadores consiguen marcas dentro de Studio, y las marcas pueden contratar creadores nicho desde Google Ads. Verificar si México y España están entre los 20 países.",
+ s:[[OF,"Post oficial: monetización",'https://blog.youtube/news-and-events/made-on-youtube-creator-monetization-shopping/'],[OF,"Contexto: NewFronts",'https://blog.youtube/news-and-events/youtube-creator-partnerships-newfronts-2026/'],[IND,"Global Star Digital",'https://www.globalstardigital.com/youtube-creator-landscape/how-youtubes-new-ai-powered-creator-partnerships-hub-is-changing-influencer-marketing-in-2026/'],[ES,"Ecosistema Startup",'https://ecosistemastartup.com/youtube-activa-agente-ia-que-crea-pitches-a-marcas/']]},
+{id:"paidcomm",cat:"comunidad",when:"soon",whenL:"Sin fecha",rel:3,t:"Comunidades de pago solo para miembros y nuevas vías de apoyo de fans",
+ w:"Los creadores podrán invitar a sus miembros a espacios tipo VIP dentro de Communities, con moderación personalizada y nuevas formas de que los fans aporten ingresos. Los detalles y la fecha no aparecen en los resúmenes disponibles.",
+ u:"Choca de frente con el MVP de membresía en cohorte. Leer el post oficial completo antes de cerrar el diseño: puede ser canal complementario o competencia.",
+ s:[[PR,"TechCrunch",'https://techcrunch.com/2026/09/23/youtube-is-making-comments-more-fun-and-fandom-more-lucrative-for-creators/'],[OF,"Resumen de Google",'https://blog.google/products-and-platforms/products/youtube/made-on-youtube-updates-2026/']]},
+{id:"customfeeds",cat:"descubrir",when:"soon",whenL:"Octubre 2026 · EE. UU.",rel:2,t:"Custom Feeds: el espectador crea su propio feed con un prompt",
+ w:"Desde la portada se crea una pestaña por estado de ánimo, rutina o interés ('podcasts ingeniosos para mi trayecto de 30 minutos'). Se pueden guardar varias y se actualizan solas. Empieza en EE. UU. en web, móvil y TV el mes que viene. TechCrunch lo ubica como seguidor de Threads, X y Spotify; Android Police lo llamó solución sin problema.",
+ u:"El descubrimiento por intención premia títulos y descripciones que responden a un prompt ('aprender a vender con YouTube'). Menos peso del volumen de suscriptores, más de la claridad temática.",
+ s:[[OF,"Post oficial: espectadores",'https://blog.youtube/news-and-events/made-on-youtube-viewer-custom-feeds-shopping-tools/'],[PR,"TechCrunch",'https://techcrunch.com/2026/09/23/youtube-will-let-you-build-your-own-algorithm-with-ai/'],[PR,"9to5Google",'https://9to5google.com/2026/09/23/made-on-youtube-2026/'],[PR,"Android Police (crítico)",'https://www.androidpolice.com/youtube-can-build-you-a-new-feed-based-on-prompts/']]},
+{id:"askshop",cat:"descubrir",when:"soon",whenL:"En despliegue · países sin precisar",rel:2,t:"Ask YouTube como asistente de compra con tablas comparativas",
+ w:"Al buscar reseñas o comparativas, Ask YouTube devuelve recomendaciones organizadas, incluidas tablas con atributos y categorías, sintetizadas de vídeos y páginas web, con preguntas de seguimiento desde la página del vídeo y voz en TV. 140 millones de usuarios lo usaron en junio.",
+ u:"Los vídeos de comparativa y FAQ pueden aparecer dentro de respuestas de IA: es el momento 'AI Overviews' de YouTube. Nombrar productos, atributos y precios de forma explícita en el vídeo y los metadatos.",
+ s:[[OF,"Post oficial: espectadores",'https://blog.youtube/news-and-events/made-on-youtube-viewer-custom-feeds-shopping-tools/'],[PR,"TechCrunch",'https://techcrunch.com/2026/09/23/youtube-doubles-down-on-video-shopping-with-ai-powered-ask-youtube-feature/'],[PR,"Escepticismo: Android Headlines",'https://www.androidheadlines.com/2026/09/youtube-expands-ai-search-personalized-feeds.html']]},
+{id:"convedit",cat:"studio",when:"later",whenL:"Inicio 2027",rel:2,t:"Editor conversacional en Shorts y YouTube Create",
+ w:"Un editor por chat con Gemini: parte de prompts sugeridos, entrega un primer corte y sigues conversando para quitar pausas, reordenar tomas o sincronizar música al ritmo. Sirve para vídeo largo y corto; la edición manual sigue disponible. Lo demostró en escena la creadora Happy Kelli.",
+ u:"Baja el costo de producir Shorts en volumen para equipos pequeños. No usable hasta 2027 y sin confirmar si entiende instrucciones en español.",
+ s:[[OF,"Post oficial: herramientas",'https://blog.youtube/news-and-events/made-on-youtube-new-tools-power-creation-journey/'],[PR,"TechCrunch",'https://techcrunch.com/2026/09/23/youtubes-conversational-video-editing-tool-lets-creators-make-edits-in-natural-language/'],[ES,"Ecosistema Startup",'https://ecosistemastartup.com/youtube-llevara-edicion-de-video-por-chat-con-ia-en-2027/']]},
+{id:"likeness",cat:"comunidad",when:"soon",whenL:"Este año",rel:2,t:"Detección de semejanza en el móvil y con voz",
+ w:"La detección de rostro para encontrar vídeos con IA que usan tu cara llega a la app móvil: inscribirse, recibir alertas y actuar desde el teléfono. YouTube integrará detección de voz con la facial para mejorar la precisión. Disponible para creadores del Programa de Partners mayores de 18.",
+ u:"Protección de marca personal: detectar anuncios o deepfakes que usen la cara o la voz de Eloisa o de clientes con figura pública. Inscribir a todos los clientes elegibles.",
+ s:[[OF,"Post oficial: herramientas",'https://blog.youtube/news-and-events/made-on-youtube-new-tools-power-creation-journey/'],[PR,"Reuters",'https://www.tradingview.com/news/reuters.com,2026:newsml_L6N45F0KL:0-youtube-unveils-ai-creator-tools-shopping-features-at-annual-event/'],[PR,"LatestLY",'https://www.latestly.com/technology/made-on-youtube-2026-conversational-ai-tools-custom-feeds-and-likeness-detection-unveiled-for-creators-7617438.html']]},
+{id:"moderation",cat:"comunidad",when:"now",whenL:"Experimento",rel:2,t:"Moderación de comentarios con IA que aprende tu estilo",
+ w:"Herramienta opcional que aprende el criterio de moderación de cada creador y filtra comentarios en consecuencia, incluidos directos. En fase de experimento.",
+ u:"Menos tiempo limpiando spam y estafas en canales de clientes. Bajo esfuerzo, alto ahorro operativo cuando llegue.",
+ s:[[PR,"9to5Google",'https://9to5google.com/2026/09/23/made-on-youtube-2026/'],[PR,"TechCrunch",'https://techcrunch.com/2026/09/23/youtube-is-making-comments-more-fun-and-fandom-more-lucrative-for-creators/']]},
+{id:"podcasts",cat:"podcast",when:"soon",whenL:"Pruebas este año · suscriptores",rel:2,t:"Ask Music y Your Podcast Lineup en YouTube Music",
+ w:"Ask Music es búsqueda conversacional con Gemini sobre 300 millones de canciones y podcasts, con icono en la esquina de la app. Your Podcast Lineup es una guía semanal hablada con podcasts recomendados y episodios sugeridos, 'manos libres'. Se prueba con suscriptores de Music y Premium en los próximos meses. 9to5Google menciona además nuevas herramientas de IA para promocionar podcasts, sin detalle.",
+ u:"Nueva vía de descubrimiento para el podcast propio y el de clientes. Configurar el show como playlist de podcast con descripciones claras para que la IA pueda describirlo.",
+ s:[[OF,"Post oficial: Music",'https://blog.youtube/news-and-events/made-on-youtube-music-new-discovery-features/'],[PR,"TechCrunch",'https://techcrunch.com/2026/09/23/youtube-music-gets-more-conversational-with-new-ai-features/'],[PR,"9to5Google",'https://9to5google.com/2026/09/23/youtube-music-ask-gemini/']]},
+{id:"tv",cat:"shorts",when:"soon",whenL:"Este año",rel:2,t:"La sala como pantalla principal: comentarios por voz y Watch With",
+ w:"Comentar desde la TV con la voz del control remoto, series de Shorts en TV y Watch With ampliado a vídeos largos elegibles. Mohan citó que más de la mitad de los 100 creadores top tienen la TV como interfaz más vista y que YouTube lidera el tiempo de visualización según Nielsen desde hace tres años.",
+ u:"Diseñar para 3 metros: texto grande en miniaturas y gráficos, ritmo más pausado, capítulos claros. Aplica a vídeos de autoridad largos y a podcasts en vídeo.",
+ s:[[OF,"Post oficial: Shorts y TV",'https://blog.youtube/news-and-events/made-on-youtube-creators-shorts-series-tv-features/'],[PR,"Deadline",'https://deadline.com/2026/09/made-on-youtube-living-room-viewing-live-shorts-1237111143/'],[PR,"TheWrap: entrevista",'https://www.thewrap.com/made-on-youtube-living-room-viewership-ai-interview/']]},
+{id:"showdowns",cat:"live",when:"later",whenL:"2027",rel:1,t:"Live showdowns, co-host con matchmaking y nuevas herramientas de fan funding",
+ w:"Dos creadores unen sus directos en un duelo con marcador en pantalla alimentado por chat, regalos y Super Chats. Go Live Together suma una cola de emparejamiento para encontrar co-anfitriones. Llega en 2027.",
+ u:"Formato de entretenimiento. Lo único aprovechable es el co-host para directos de co-marketing con aliados.",
+ s:[[OF,"Post oficial: Live",'https://blog.youtube/news-and-events/made-on-youtube-live-tools-fan-funding-dubbing/'],[ES,"Agencia Andina",'https://andina.pe/agencia/noticia-made-on-youtube-2026-2027-se-vienen-cambios-live-incluyendo-doblaje-automatico-1093000.aspx']]},
+{id:"script",cat:"studio",when:"soon",whenL:"Sin fecha · baja confianza",rel:2,t:"Asistente de storytelling con análisis de guion",
+ w:"Reportado por el Wall Street Journal (vía Techmeme): un asistente de IA para analizar guiones y ayudar en storytelling. No aparece con ese nombre en los resúmenes de los posts oficiales; puede ser la misma función de feedback de borradores de Ask Studio.",
+ u:"Si es una función separada, sirve para revisar guiones de vídeos de venta antes de grabar. Confirmar en el post oficial.",
+ s:[[PR,"WSJ vía Techmeme",'https://www.techmeme.com/260923/p26'],[PR,"The Next Web",'https://thenextweb.com/news/youtube-custom-feeds-ai-creator-tools-netflix']]},
+{id:"gif",cat:"comunidad",when:"soon",whenL:"Este otoño",rel:1,t:"Comentarios con GIF",
+ w:"La caja de comentarios en móvil incorpora una biblioteca de GIFs, en vídeos y Shorts.",
+ u:"Marginal. Un poco más de engagement, un poco más de moderación.",
+ s:[[PR,"9to5Google",'https://9to5google.com/2026/09/23/made-on-youtube-2026/'],[PR,"Engadget",'https://www.engadget.com/2266446/youtube-will-soon-let-you-generate-custom-feeds-and-use-gifs-in-comments/']]},
+{id:"veo",cat:"studio",when:"now",whenL:"Continuación · baja confianza",rel:1,t:"Veo 3 Fast gratis en Shorts",
+ w:"La cobertura lo lista entre las novedades, pero Veo 3 Fast se lanzó en Made On YouTube 2025 y los resúmenes de 2026 no describen un modelo nuevo. Tratarlo como continuación salvo que el post oficial diga otra cosa.",
+ u:"B-roll generativo para teasers de producto a costo cero. Mantener la etiqueta de contenido con IA activada; no limita alcance ni monetización.",
+ s:[[OF,"Resumen de Google",'https://blog.google/products-and-platforms/products/youtube/made-on-youtube-updates-2026/'],[PR,"HyperAI",'https://hyper.ai/en/stories/adb2d87ffd9a9538910fd0928713135c']]},
+{id:"coachella",cat:"podcast",when:"now",whenL:"Hasta 2030",rel:1,t:"Coachella en exclusiva en YouTube hasta 2030",
+ w:"Mohan anunció en escena la renovación con Goldenvoice. Bloomberg reporta que YouTube ganó a ofertas de Netflix y Amazon por audiencia global y acceso gratis sin registro. El acuerdo añade mini documentales entre sets.",
+ u:"Entretenimiento. El dato útil es el argumento: alcance sin fricción como ventaja frente a plataformas por suscripción.",
+ s:[[PR,"Bloomberg",'https://www.bloomberg.com/news/articles/2026-09-23/youtube-beats-amazon-netflix-to-clinch-coachella-livestream-through-2030'],[PR,"Variety",'https://variety.com/2026/biz/news/youtube-coachella-2030-made-on-youtube-1236872595/'],[PR,"Deadline",'https://deadline.com/2026/09/youtube-extends-coachella-livestreams-2030-1237111203/']]},
+{id:"posts",cat:"comunidad",when:"now",whenL:"Dato",rel:2,t:"Posts (comunidad): 300 millones de personas interactúan cada día",
+ w:"Cifra citada por 9to5Google a partir del evento. No es una función nueva, pero dimensiona un canal que casi nadie explota con criterio.",
+ u:"Los Posts son el 'newsletter dentro de YouTube' para avisar de lanzamientos y directos. Vale la pena un experimento medido en el canal propio.",
+ s:[[PR,"9to5Google",'https://9to5google.com/2026/09/23/made-on-youtube-2026/']]}
+];
+const CAT={studio:"Studio e IA",dinero:"Monetización",live:"Directos",shorts:"Shorts y TV",descubrir:"Descubrimiento",podcast:"Podcast y música",comunidad:"Comunidad y seguridad"};
+const RELL={3:"alta",2:"media",1:"baja"};
+const SRCL={of:"Oficial",ind:"Industria",pr:"Prensa",es:"Español"};
+const grid=document.getElementById("grid");
+grid.innerHTML=A.map(a=>`
+<article class="card" id="c-${a.id}" data-rel="${a.rel}" data-cat="${a.cat}" data-when="${a.when}">
+  <div class="row"><div class="left"><span class="tag cat">${CAT[a.cat]}</span><span class="pill ${a.when}">${a.whenL}</span></div><span class="rel" data-r="${a.rel}" title="Relevancia para nosotros: ${RELL[a.rel]}"><i></i><i></i><i></i> ${RELL[a.rel]}</span></div>
+  <h3>${a.t}</h3>
+  <p class="what">${a.w}</p>
+  <p class="us"><b>Para nosotros</b>${a.u}</p>
+  <div class="src">${a.s.map(s=>`<a class="${s[0]}" href="${s[2]}" title="${SRCL[s[0]]}"><i></i>${s[1]}</a>`).join("")}</div>
+</article>`).join("");
+
+const state={rel:"all",cat:"all",when:"all"};
+function apply(){
+  let n=0;
+  document.querySelectorAll("#grid .card").forEach(c=>{
+    const ok=(state.rel==="all"||c.dataset.rel===state.rel)&&(state.cat==="all"||c.dataset.cat===state.cat)&&(state.when==="all"||c.dataset.when===state.when);
+    c.classList.toggle("hidden",!ok); if(ok)n++;
+  });
+  document.getElementById("count").textContent=n+" de "+A.length+" anuncios";
+}
+document.querySelectorAll(".fgroup").forEach(g=>{
+  const k=g.dataset.filter;
+  g.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{
+    state[k]=b.dataset.v;
+    g.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));
+    apply();
+  }));
+});
+apply();
+</script>
