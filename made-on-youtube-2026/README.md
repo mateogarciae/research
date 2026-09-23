@@ -29,6 +29,7 @@ Abrir `index.html` para el briefing completo: 22 anuncios con qué es, cuándo l
 
 - The Publish Press (Colin y Samir): https://news.thepublishpress.com/p/video-a-b-testing-comes-to-youtube
 - Tubefilter: https://www.tubefilter.com/2026/09/23/made-on-youtube-2026-ai-personalization-creator-tools/
+- Paddy Galloway (correo desde el evento): A/B de vídeo empieza por Shorts, miniaturas dinámicas por segmento, Ask Studio packaging assistant; despliegue "en los próximos meses"
 - TechCrunch (creator tools): https://techcrunch.com/2026/09/23/youtube-adds-new-creator-tools-like-video-a-b-testing-dynamic-thumbnails-and-live-dubbing/
 - TechCrunch (shopping): https://techcrunch.com/2026/09/23/youtube-doubles-down-on-video-shopping-with-ai-powered-ask-youtube-feature/
 - TechCrunch (comunidades de pago): https://techcrunch.com/2026/09/23/youtube-is-making-comments-more-fun-and-fandom-more-lucrative-for-creators/
@@ -48,7 +49,7 @@ Abrir `index.html` para el briefing completo: 22 anuncios con qué es, cuándo l
 
 ## Pendiente de revisar en 24 a 72 h
 
-vidIQ, TubeBuddy, Think Media, 1 of 10, Paddy Galloway, Jon Youshaei, Lia Haberman, blog de YouTube en español, Xataka, Infobae, Marketing4eCommerce y referentes hispanos no habían publicado al corte.
+vidIQ, TubeBuddy, Think Media, 1 of 10, Jon Youshaei, Lia Haberman, blog de YouTube en español, Xataka, Infobae, Marketing4eCommerce y referentes hispanos no habían publicado al corte.
 
 ## Nota de método
 
