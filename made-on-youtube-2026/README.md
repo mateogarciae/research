@@ -6,11 +6,11 @@ Abrir `index.html` para el briefing completo: 22 anuncios con qué es, cuándo l
 
 ## Lo esencial
 
-1. Pruebas A/B de vídeo con hasta tres cortes (2027).
+1. Pruebas A/B de vídeo con hasta tres cortes, vídeo largo, próximamente (post oficial).
 2. Ask Studio revisa borradores y llega a iOS y Android (en despliegue). Miniaturas dinámicas y refresco automático del catálogo (fin de 2026).
 3. Doblaje automático en tiempo real para directos, piloto a inicios de 2027, inglés ↔ español primero según Andina y La Cuarta.
-4. Series de Shorts con temporadas y episodios, también en TV (desde hoy para YPP).
-5. Afiliados de YouTube Shopping a 35 países antes de fin de año, con Amazon internacional. Creator Partnerships en 20 países y Ask Studio para responder briefs de marcas.
+4. Series de Shorts con temporadas y episodios, también en TV (desde hoy, todos los creadores).
+5. Afiliados de YouTube Shopping a 35 países antes de fin de año, con Amazon internacional, localización transfronteriza y campañas con comisiones exclusivas. Creator Partnerships en 20 países, Ask Studio para responder briefs, y segmentos dinámicos de patrocinio insertados en hasta 20 vídeos largos (en pruebas).
 6. Comunidades de pago solo para miembros y nuevas vías de apoyo de fans (sin fecha).
 
 ## Fuentes oficiales
@@ -53,4 +53,4 @@ vidIQ, TubeBuddy, Think Media, 1 of 10, Jon Youshaei, Lia Haberman, blog de YouT
 
 ## Nota de método
 
-La red de la sesión bloqueó la lectura completa de páginas externas; todo procede de resúmenes de resultados de búsqueda. URLs exactas; cifras y fechas a confirmar en el post oficial antes de citarlas.
+Los siete posts oficiales se leyeron completos y las tarjetas se contrastaron contra ellos. El resto de fuentes procede de resúmenes de resultados de búsqueda.
