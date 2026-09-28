@@ -188,6 +188,10 @@ table.trk td.since{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:
 .st.y2027{color:var(--later);background:var(--later-bg)}
 .st.nodate{color:var(--later);background:var(--later-bg)}
 .st.unofficial{color:var(--of);background:var(--of-bg)}
+.st.due{color:var(--now);background:var(--now-bg);outline:1px dashed currentColor;outline-offset:-1px}
+.st.window{color:var(--soon);background:var(--soon-bg);outline:1px dashed currentColor;outline-offset:-1px}
+.trk-rule{font-size:12.5px;color:var(--ink-3);margin:10px 0 0;max-width:90ch;line-height:1.5}
+.trk-rule b{color:var(--ink-2);font-weight:600}
 .st.rolling::before{background:transparent;border:2px solid currentColor;width:5px;height:5px}
 
 @media (max-width:520px){
@@ -232,9 +236,10 @@ table.trk td.since{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:
   <div class="trk-counts" id="trk-counts"></div>
   <div class="moves"><h3>Qué se movió</h3><ol id="trk-moves"></ol></div>
   <div class="trk-wrap"><table class="trk" id="trk-table">
-    <thead><tr><th>Función</th><th>Estado</th><th>Dónde</th><th>Palabras de YouTube</th><th>Desde</th></tr></thead>
+    <thead><tr><th>Función</th><th>Estado</th><th>Dónde</th><th>Palabras de YouTube</th><th>Fecha</th></tr></thead>
     <tbody></tbody>
   </table></div>
+  <p class="trk-rule"><b>Cómo leemos las fechas de YouTube.</b> "Later this year" y "by the end of the year": antes del 31 dic 2026. "Early 2027": primer trimestre de 2027. "In 2027": antes del 31 dic 2027. "In the coming weeks": seis semanas. Lo del primer trimestre y las seis semanas es interpretación nuestra; lo demás es literal. "Soon", "coming soon" y "in the coming months" no tienen fecha y no cambian solos. Cuando se abre la ventana, la función pasa a "Ventana abierta". Cuando se cumple la fecha, pasa a "Disponible por fecha" hasta que YouTube lo confirme y se marque "Disponible".</p>
 </section>
 
 <section id="esencial">
@@ -430,8 +435,14 @@ const STATUS={
  soon:{l:"Próximamente",g:"Por venir en 2026"},
  nodate:{l:"Sin fecha",g:"Anunciado sin fecha"},
  y2027:{l:"2027",g:"2027"},
- unofficial:{l:"Sin anuncio oficial",g:"No aparece en fuentes oficiales"}
+ unofficial:{l:"Sin anuncio oficial",g:"No aparece en fuentes oficiales"},
+ window:{l:"Ventana abierta",g:"En su ventana de lanzamiento"},
+ due:{l:"Disponible por fecha",g:"Disponible ya"}
 };
+/* Estado efectivo: el tiempo mueve el estado aunque YouTube no publique nada.
+   ws = inicio de la ventana anunciada, we = fin. Antes de ws: estado base. Entre ws y we: "window". Después de we: "due" (fecha cumplida, falta confirmación oficial). */
+const TODAY=(()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")})();
+function eff(r){if(r.we&&(r.st==="soon"||r.st==="y2027")){if(TODAY>r.we)return"due";if(r.ws&&TODAY>=r.ws)return"window";}return r.st;}
 const TRK=[
  {id:"shortsseries",card:"shortsseries",n:"Series de Shorts (temporadas y episodios)",st:"rolling",where:"Creadores · web, móvil y TV · sin países ni requisitos indicados",q:"Starting today, Shorts series is rolling out to creators, across web, mobile, and TV.",since:"2026-09-23",src:"shorts"},
  {id:"askstudio",card:"askstudio",n:"Ask Studio revisa borradores",st:"live",where:"YouTube Studio · sin país indicado",q:"Creators can now use Studio to get personalized guidance on early drafts.",since:"2026-09-23",src:"main"},
@@ -447,11 +458,11 @@ const TRK=[
  {id:"dynseg",card:"dynseg",n:"Segmentos dinámicos de patrocinio",st:"testing",where:"Hasta 20 videos largos, segmentación regional",q:"Continuing to test and evolve dynamic brand segments",since:"",src:"money"},
  {id:"abvideo",card:"abvideo",n:"Pruebas A/B de video (3 cortes)",st:"soon",where:"Sin formato ni país indicado",q:"Coming soon, you'll also be able to test up to three video cuts",since:"",src:"tools"},
  {id:"customfeeds",card:"customfeeds",n:"Custom Feeds",st:"soon",where:"Solo EE. UU. · web, móvil y TV",q:"Custom feeds will be available for users in the U.S. on web, mobile, and TVs soon.",since:"",src:"viewer"},
- {id:"affiliates",card:"affiliates",n:"Afiliados de Shopping a 35 países",st:"soon",where:"35 países antes de fin de 2026 (lista no publicada)",q:"expanding our affiliate program to 35 countries by the end of the year",since:"",src:"money"},
- {id:"amazonintl",card:"affiliates",n:"Amazon en afiliados: India y Brasil",st:"soon",where:"India y Brasil, luego más países",q:"we're expanding this to India and Brazil in the coming weeks and more countries before the end of year.",since:"",src:"money"},
+ {id:"affiliates",card:"affiliates",n:"Afiliados de Shopping a 35 países",st:"soon",ws:"2026-09-23",we:"2026-12-31",where:"35 países antes de fin de 2026 (lista no publicada)",q:"expanding our affiliate program to 35 countries by the end of the year",since:"",src:"money"},
+ {id:"amazonintl",card:"affiliates",n:"Amazon en afiliados: India y Brasil",st:"soon",ws:"2026-09-23",we:"2026-11-04",where:"India y Brasil, luego más países",q:"we're expanding this to India and Brazil in the coming weeks and more countries before the end of year.",since:"",src:"money"},
  {id:"askbriefs",card:"partnerships",n:"Ask Studio responde briefs de marcas",st:"soon",where:"Ask Studio",q:"Soon, you can use Ask Studio to quickly craft tailored responses to brand briefs",since:"",src:"money"},
- {id:"likenessmobile",card:"likeness",n:"Detección de semejanza en móvil y con voz",st:"soon",where:"App móvil de YouTube",q:"Later this year, we'll start integrating speaking voice detection with facial detection… We'll also make likeness detection accessible directly in the YouTube mobile app",since:"",src:"tools"},
- {id:"watchwith",card:"tv",n:"Watch With en videos largos",st:"soon",where:"Videos largos elegibles",q:"with a roll out starting later this year",since:"",src:"live"},
+ {id:"likenessmobile",card:"likeness",n:"Detección de semejanza en móvil y con voz",st:"soon",ws:"2026-09-23",we:"2026-12-31",where:"App móvil de YouTube",q:"Later this year, we'll start integrating speaking voice detection with facial detection… We'll also make likeness detection accessible directly in the YouTube mobile app",since:"",src:"tools"},
+ {id:"watchwith",card:"tv",n:"Watch With en videos largos",st:"soon",ws:"2026-09-23",we:"2026-12-31",where:"Videos largos elegibles",q:"with a roll out starting later this year",since:"",src:"live"},
  {id:"poststv",card:"tv",n:"Posts en la TV",st:"soon",where:"App de YouTube en TV",q:"in the coming months, we're bringing posts to TVs",since:"",src:"shorts"},
  {id:"askmusic",card:"podcasts",n:"Ask Music y Your Podcast Lineup",st:"soon",where:"Suscriptores de YouTube Music y Premium, todo el mundo",q:"Coming soon",since:"",src:"music"},
  {id:"dynthumb",card:"dynthumb",n:"Miniaturas dinámicas (3 opciones por segmento)",st:"nodate",where:"YouTube Studio",q:"use dynamic thumbnails to have YouTube recommend the best of three options to different segments of your audience",since:"",src:"tools"},
@@ -459,13 +470,14 @@ const TRK=[
  {id:"convedit",card:"convedit",n:"Editor conversacional",st:"nodate",where:"Shorts y YouTube Create",q:"conversational editing assistant for both Shorts and the YouTube Create app",since:"",src:"tools"},
  {id:"askshop",card:"askshop",n:"Ask YouTube como asistente de compra",st:"nodate",where:"Sin país indicado · móvil y voz en TV",q:"We're launching new capabilities to Ask YouTube to make your shopping journey easier.",since:"",src:"viewer"},
  {id:"paidcomm",card:"paidcomm",n:"Espacios solo para miembros",st:"nodate",where:"Sin detalle",q:"from members-only spaces to AI-powered comment moderation",since:"",src:"main"},
- {id:"livedub",card:"livedub",n:"Doblaje automático en directos",st:"y2027",where:"Piloto · YouTube no nombra idiomas",q:"we're piloting Live auto dubbing, starting in early 2027",since:"",src:"live"},
- {id:"golive",card:"showdowns",n:"Go Live Together con matchmaking",st:"y2027",where:"Directos",q:"In early 2027, you'll be able to either browse and select from creators who are currently streaming, or jump into a quick match queue",since:"",src:"live"},
- {id:"showdowns",card:"showdowns",n:"Live showdowns",st:"y2027",where:"Directos",q:"an interactive format that turns fan funding into a team challenge, coming in 2027",since:"",src:"live"},
+ {id:"livedub",card:"livedub",n:"Doblaje automático en directos",st:"y2027",ws:"2027-01-01",we:"2027-03-31",where:"Piloto · YouTube no nombra idiomas",q:"we're piloting Live auto dubbing, starting in early 2027",since:"",src:"live"},
+ {id:"golive",card:"showdowns",n:"Go Live Together con matchmaking",st:"y2027",ws:"2027-01-01",we:"2027-03-31",where:"Directos",q:"In early 2027, you'll be able to either browse and select from creators who are currently streaming, or jump into a quick match queue",since:"",src:"live"},
+ {id:"showdowns",card:"showdowns",n:"Live showdowns",st:"y2027",ws:"2027-01-01",we:"2027-12-31",where:"Directos",q:"an interactive format that turns fan funding into a team challenge, coming in 2027",since:"",src:"live"},
  {id:"gif",card:"gif",n:"Comentarios con GIF",st:"unofficial",where:"Solo reportado por prensa",q:"No aparece en los posts oficiales del 23 de septiembre",since:"",src:null},
  {id:"script",card:"script",n:"Asistente de guion",st:"unofficial",where:"Solo reportado por prensa",q:"No aparece en los posts oficiales del 23 de septiembre",since:"",src:null}
 ];
 const MOVES=[
+ {d:"2026-09-28",t:"El tracker ahora avanza con el calendario: cuando se abre la ventana que anunció YouTube, la función pasa a 'Ventana abierta'; cuando se cumple la fecha, pasa a 'Disponible por fecha' hasta confirmación oficial. Hoy se abrió la ventana de 4 funciones con fecha de fin de 2026: afiliados a 35 países, Amazon en India y Brasil, detección de semejanza en móvil y con voz, y Watch With en videos largos."},
  {d:"2026-09-28",t:"Arranca el seguimiento diario. Sin publicaciones oficiales nuevas desde el 23 de septiembre. Fechas alineadas a las palabras exactas de YouTube: Custom Feeds pasa de 'octubre' (prensa) a 'pronto, solo EE. UU.'; miniaturas dinámicas y editor conversacional pasan a 'sin fecha'; comentarios con GIF y asistente de guion quedan marcados sin anuncio oficial."},
  {d:"2026-09-23",t:"Made On YouTube 2026 en Nueva York: YouTube publica 8 posts oficiales. Series de Shorts empiezan a desplegarse ese mismo día."}
 ];
@@ -569,9 +581,9 @@ const A=[
 const CAT={studio:"Studio e IA",dinero:"Monetización",live:"Directos",shorts:"Shorts y TV",descubrir:"Descubrimiento",podcast:"Podcast y música",comunidad:"Comunidad y seguridad"};
 const RELL={3:"alta",2:"media",1:"baja"};
 const SRCL={of:"Oficial",ind:"Industria",pr:"Prensa",es:"Español"};
-const WHEN={live:"now",rolling:"now",testing:"soon",soon:"soon",nodate:"soon",y2027:"later",unofficial:"soon"};
-A.forEach(a=>{const r=TRK.find(x=>x.card===a.id);if(r){a.when=WHEN[r.st];a.st=r.st;}});
-function pillFor(a){const r=TRK.find(x=>x.card===a.id);return r?`<span class="st ${r.st}">${STATUS[r.st].l}</span>`:`<span class="pill ${a.when}">${a.whenL}</span>`;}
+const WHEN={live:"now",rolling:"now",due:"now",testing:"soon",soon:"soon",window:"soon",nodate:"soon",y2027:"later",unofficial:"soon"};
+A.forEach(a=>{const r=TRK.find(x=>x.card===a.id);if(r){a.when=WHEN[eff(r)];}});
+function pillFor(a){const r=TRK.find(x=>x.card===a.id);if(!r)return`<span class="pill ${a.when}">${a.whenL}</span>`;const e=eff(r);return`<span class="st ${e}">${STATUS[e].l}</span>`;}
 const grid=document.getElementById("grid");
 grid.innerHTML=A.map(a=>`
 <article class="card" id="c-${a.id}" data-rel="${a.rel}" data-cat="${a.cat}" data-when="${a.when}">
@@ -605,20 +617,21 @@ apply();
   const fmt=d=>{if(!d)return"—";const[y,m,dd]=d.split("-");const M=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];return (+dd)+" "+M[+m-1]+" "+y};
   document.getElementById("trk-date").textContent=fmt(TRK_DATE);
   const order=["live","rolling","testing","soon","nodate","y2027","unofficial"];
-  const groups=[["Disponible ya",["live","rolling"]],["En pruebas",["testing"]],["Por venir en 2026",["soon"]],["Anunciado sin fecha",["nodate"]],["2027",["y2027"]],["No aparece en fuentes oficiales",["unofficial"]]];
+  const groups=[["Disponible ya",["live","rolling","due"]],["En pruebas",["testing"]],["En su ventana de lanzamiento",["window"]],["Próximamente, sin fecha exacta",["soon"]],["Anunciado sin fecha",["nodate"]],["2027",["y2027"]],["No aparece en fuentes oficiales",["unofficial"]]];
   const cnt=document.getElementById("trk-counts");
-  cnt.innerHTML=groups.map(([g,sts])=>`<div class="trk-count"><div class="v">${TRK.filter(r=>sts.includes(r.st)).length}</div><div class="l">${g}</div></div>`).join("");
+  cnt.innerHTML=groups.map(([g,sts])=>`<div class="trk-count"><div class="v">${TRK.filter(r=>sts.includes(eff(r))).length}</div><div class="l">${g}</div></div>`).join("");
   document.getElementById("trk-moves").innerHTML=MOVES.map((m,i)=>`<li class="${i===0?"latest":""}"><time>${fmt(m.d)}</time><span>${m.t}</span></li>`).join("");
+  function dateCell(r){const e=eff(r);if(r.since)return"Desde "+fmt(r.since);if(e==="due")return"Fecha cumplida "+fmt(r.we)+"<br><span style=\"font-family:inherit\">Sin confirmación oficial</span>";if(e==="window")return"Antes del "+fmt(r.we);if(r.ws)return"Entre "+fmt(r.ws)+" y "+fmt(r.we);return"—";}
   const tb=document.querySelector("#trk-table tbody");
   tb.innerHTML=groups.map(([g,sts])=>{
-    const rows=TRK.filter(r=>sts.includes(r.st));
+    const rows=TRK.filter(r=>sts.includes(eff(r)));
     if(!rows.length)return"";
     return `<tr class="grp"><td colspan="5">${g}</td></tr>`+rows.map(r=>`<tr>
       <td class="fn"><b>${r.n}</b>${r.card?`<br><a href="#c-${r.card}">Ver tarjeta</a>`:""}</td>
-      <td><span class="st ${r.st}">${STATUS[r.st].l}</span></td>
+      <td><span class="st ${eff(r)}">${STATUS[eff(r)].l}</span></td>
       <td>${r.where}</td>
       <td class="q">${r.src?`<a href="${SRC[r.src]}">“${r.q}”</a>`:r.q}</td>
-      <td class="since">${r.since?fmt(r.since):"—"}</td></tr>`).join("");
+      <td class="since">${dateCell(r)}</td></tr>`).join("");
   }).join("");
 })();
 
