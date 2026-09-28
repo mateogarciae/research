@@ -154,6 +154,42 @@ section{padding-block:32px 0}
 .verify h2{font-size:18px;margin-bottom:8px}
 .verify ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:13.5px;display:flex;flex-direction:column;gap:5px}
 footer{margin-top:28px;font-size:12.5px;color:var(--ink-3)}
+
+/* tracker */
+.trk-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+.trk-meta{font-size:13px;color:var(--ink-3)}
+.trk-meta b{color:var(--ink);font-weight:600}
+.trk-counts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:14px}
+.trk-count{background:var(--surface);padding:12px 14px}
+.trk-count .v{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:24px;line-height:1;font-variant-numeric:tabular-nums}
+.trk-count .l{font-size:12.5px;color:var(--ink-2);margin-top:4px}
+.moves{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin-bottom:14px}
+.moves h3{font-size:15px;font-weight:700;margin-bottom:8px}
+.moves ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.moves li{display:grid;grid-template-columns:92px 1fr;gap:10px;font-size:13.5px;line-height:1.45}
+.moves li time{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;color:var(--ink-3);padding-top:1px}
+.moves li.latest time{color:var(--accent);font-weight:500}
+.trk-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+table.trk{width:100%;border-collapse:collapse;font-size:13.5px;min-width:760px}
+table.trk th{text-align:left;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+table.trk td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.4}
+table.trk tr:last-child td{border-bottom:0}
+table.trk tr.grp td{background:var(--surface-2);font-weight:600;font-size:12.5px;color:var(--ink-2);padding:7px 12px}
+table.trk td.fn b{font-weight:600}
+table.trk td.fn a{font-size:12px}
+table.trk td.q{color:var(--ink-2);font-style:italic}
+table.trk td.since{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;white-space:nowrap;color:var(--ink-2)}
+.st{display:inline-flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.03em;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.st::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.st.live{color:var(--now);background:var(--now-bg)}
+.st.rolling{color:var(--now);background:var(--now-bg)}
+.st.testing{color:var(--soon);background:var(--soon-bg)}
+.st.soon{color:var(--soon);background:var(--soon-bg)}
+.st.y2027{color:var(--later);background:var(--later-bg)}
+.st.nodate{color:var(--later);background:var(--later-bg)}
+.st.unofficial{color:var(--of);background:var(--of-bg)}
+.st.rolling::before{background:transparent;border:2px solid currentColor;width:5px;height:5px}
+
 @media (max-width:520px){
   .wrap{padding-inline:16px}
   header{padding-block:24px 18px}
@@ -172,7 +208,7 @@ footer{margin-top:28px;font-size:12.5px;color:var(--ink-3)}
   </div>
   <div class="meta">
     <div><b>Evento:</b> miércoles 23 sep 2026, Nueva York · keynote de Neal Mohan</div>
-    <div><b>Corte:</b> 23 sep 2026, mediodía (mismo día del evento)</div>
+    <div><b>Estado de lanzamientos:</b> revisado cada día</div>
     <div><b>Anuncios rastreados:</b> 23 · <b>Fuentes:</b> 46+</div>
   </div>
   <p class="lede">Un vistazo por anuncio: qué es, cuándo llega y <strong>qué significa para un negocio que usa YouTube para vender, no para entretener</strong>. Cada tarjeta enlaza a la fuente oficial y a la mejor cobertura de prensa, industria y español para hacer <em>double down</em>. Filtra por relevancia para ir directo a lo que importa.</p>
@@ -186,6 +222,20 @@ footer{margin-top:28px;font-size:12.5px;color:var(--ink-3)}
     <span class="rel" data-r="1"><i></i><i></i><i></i> baja</span>
   </div>
 </header>
+
+
+<section id="estado">
+  <div class="trk-head">
+    <div class="sec-head" style="margin-bottom:0"><h2>Estado de lanzamientos</h2></div>
+    <div class="trk-meta">Última revisión: <b id="trk-date"></b> · Solo fuentes oficiales de YouTube · Se revisa cada día</div>
+  </div>
+  <div class="trk-counts" id="trk-counts"></div>
+  <div class="moves"><h3>Qué se movió</h3><ol id="trk-moves"></ol></div>
+  <div class="trk-wrap"><table class="trk" id="trk-table">
+    <thead><tr><th>Función</th><th>Estado</th><th>Dónde</th><th>Palabras de YouTube</th><th>Desde</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+</section>
 
 <section id="esencial">
   <div class="sec-head">
@@ -245,8 +295,8 @@ footer{margin-top:28px;font-size:12.5px;color:var(--ink-3)}
     </div>
     <div class="fgroup" data-filter="when"><span class="eyebrow">Cuándo</span>
       <button class="chip" aria-pressed="true" data-v="all">Todo</button>
-      <button class="chip" aria-pressed="false" data-v="now">Ya</button>
-      <button class="chip" aria-pressed="false" data-v="soon">Este año</button>
+      <button class="chip" aria-pressed="false" data-v="now">Disponible</button>
+      <button class="chip" aria-pressed="false" data-v="soon">Por venir o sin fecha</button>
       <button class="chip" aria-pressed="false" data-v="later">2027</button>
     </div>
     <span class="count" id="count"></span>
@@ -357,6 +407,70 @@ footer{margin-top:28px;font-size:12.5px;color:var(--ink-3)}
 </div>
 
 <script>
+
+/* ===== TRACKER DATA · actualizar cada día solo con fuentes oficiales ===== */
+const TRK_DATE="2026-09-28";
+const SRC={
+ tools:"https://blog.youtube/news-and-events/made-on-youtube-new-tools-power-creation-journey/",
+ main:"https://blog.youtube/news-and-events/innovation-youtube-era-made-on-viewers-creators/",
+ shorts:"https://blog.youtube/news-and-events/made-on-youtube-creators-shorts-series-tv-features/",
+ live:"https://blog.youtube/news-and-events/made-on-youtube-live-tools-fan-funding-dubbing/",
+ money:"https://blog.youtube/news-and-events/made-on-youtube-creator-monetization-shopping/",
+ viewer:"https://blog.youtube/news-and-events/made-on-youtube-viewer-custom-feeds-shopping-tools/",
+ music:"https://blog.youtube/news-and-events/made-on-youtube-music-new-discovery-features/",
+ coachella:"https://blog.youtube/news-and-events/made-on-youtube-coachella-exclusively-stream-youtube-2030/",
+ thumbs:"https://blog.youtube/news-and-events/youtube-studio-custom-thumbnail-updates/",
+ io:"https://blog.youtube/news-and-events/youtube-news-google-io-2026/",
+ mo25:"https://blog.youtube/news-and-events/made-on-youtube-2025/"
+};
+const STATUS={
+ live:{l:"Disponible",g:"Disponible ya"},
+ rolling:{l:"En despliegue",g:"Disponible ya"},
+ testing:{l:"En pruebas",g:"En pruebas"},
+ soon:{l:"Próximamente",g:"Por venir en 2026"},
+ nodate:{l:"Sin fecha",g:"Anunciado sin fecha"},
+ y2027:{l:"2027",g:"2027"},
+ unofficial:{l:"Sin anuncio oficial",g:"No aparece en fuentes oficiales"}
+};
+const TRK=[
+ {id:"shortsseries",card:"shortsseries",n:"Series de Shorts (temporadas y episodios)",st:"rolling",where:"Creadores · web, móvil y TV · sin países ni requisitos indicados",q:"Starting today, Shorts series is rolling out to creators, across web, mobile, and TV.",since:"2026-09-23",src:"shorts"},
+ {id:"askstudio",card:"askstudio",n:"Ask Studio revisa borradores",st:"live",where:"YouTube Studio · sin país indicado",q:"Creators can now use Studio to get personalized guidance on early drafts.",since:"2026-09-23",src:"main"},
+ {id:"aithumb",card:"aithumb",n:"Miniaturas con IA al estilo del canal",st:"live",where:"Ask Studio, videos largos · sin país indicado",q:"Simply ask for a thumbnail for your latest video. / generate channel-matched thumbnails",since:"2026-07-24",src:"thumbs"},
+ {id:"shortsthumb",card:null,n:"Miniaturas personalizadas en Shorts",st:"rolling",where:"Programa de Partners primero",q:"We'll expand this to more creators over time.",since:"2026-07-24",src:"thumbs"},
+ {id:"partnerships",card:"partnerships",n:"Creator Partnerships",st:"live",where:"20 países (YouTube no publica la lista)",q:"now available in 20 countries",since:"2026-09-23",src:"money"},
+ {id:"amazonus",card:"affiliates",n:"Etiquetas de Amazon en afiliados",st:"live",where:"Estados Unidos",q:"We recently announced the ability to tag Amazon products in the U.S.",since:"",src:"money"},
+ {id:"tvcomments",card:"tv",n:"Comentarios por voz desde la TV",st:"live",where:"App de YouTube en TV",q:"post comments directly through their TVs",since:"2026-09-23",src:"shorts"},
+ {id:"likenessface",card:"likeness",n:"Detección de rostro (likeness)",st:"live",where:"Todos los creadores mayores de 18",q:"expanding to all creators 18 and older",since:"2026-05-19",src:"io"},
+ {id:"veo",card:"veo",n:"Veo 3 Fast en Shorts",st:"live",where:"Shorts",q:"Easily create video backgrounds or clips with sound, for free",since:"2025-09-16",src:"mo25"},
+ {id:"coachella",card:"coachella",n:"Coachella exclusivo en YouTube",st:"live",where:"Acuerdo hasta 2030",q:"Coachella will stream exclusively on YouTube through 2030",since:"2026-09-23",src:"coachella"},
+ {id:"moderation",card:"moderation",n:"Moderación de comentarios con IA",st:"testing",where:"Opcional (opt-in)",q:"we're testing opt-in AI-powered comment moderation.",since:"",src:"tools"},
+ {id:"dynseg",card:"dynseg",n:"Segmentos dinámicos de patrocinio",st:"testing",where:"Hasta 20 videos largos, segmentación regional",q:"Continuing to test and evolve dynamic brand segments",since:"",src:"money"},
+ {id:"abvideo",card:"abvideo",n:"Pruebas A/B de video (3 cortes)",st:"soon",where:"Sin formato ni país indicado",q:"Coming soon, you'll also be able to test up to three video cuts",since:"",src:"tools"},
+ {id:"customfeeds",card:"customfeeds",n:"Custom Feeds",st:"soon",where:"Solo EE. UU. · web, móvil y TV",q:"Custom feeds will be available for users in the U.S. on web, mobile, and TVs soon.",since:"",src:"viewer"},
+ {id:"affiliates",card:"affiliates",n:"Afiliados de Shopping a 35 países",st:"soon",where:"35 países antes de fin de 2026 (lista no publicada)",q:"expanding our affiliate program to 35 countries by the end of the year",since:"",src:"money"},
+ {id:"amazonintl",card:"affiliates",n:"Amazon en afiliados: India y Brasil",st:"soon",where:"India y Brasil, luego más países",q:"we're expanding this to India and Brazil in the coming weeks and more countries before the end of year.",since:"",src:"money"},
+ {id:"askbriefs",card:"partnerships",n:"Ask Studio responde briefs de marcas",st:"soon",where:"Ask Studio",q:"Soon, you can use Ask Studio to quickly craft tailored responses to brand briefs",since:"",src:"money"},
+ {id:"likenessmobile",card:"likeness",n:"Detección de semejanza en móvil y con voz",st:"soon",where:"App móvil de YouTube",q:"Later this year, we'll start integrating speaking voice detection with facial detection… We'll also make likeness detection accessible directly in the YouTube mobile app",since:"",src:"tools"},
+ {id:"watchwith",card:"tv",n:"Watch With en videos largos",st:"soon",where:"Videos largos elegibles",q:"with a roll out starting later this year",since:"",src:"live"},
+ {id:"poststv",card:"tv",n:"Posts en la TV",st:"soon",where:"App de YouTube en TV",q:"in the coming months, we're bringing posts to TVs",since:"",src:"shorts"},
+ {id:"askmusic",card:"podcasts",n:"Ask Music y Your Podcast Lineup",st:"soon",where:"Suscriptores de YouTube Music y Premium, todo el mundo",q:"Coming soon",since:"",src:"music"},
+ {id:"dynthumb",card:"dynthumb",n:"Miniaturas dinámicas (3 opciones por segmento)",st:"nodate",where:"YouTube Studio",q:"use dynamic thumbnails to have YouTube recommend the best of three options to different segments of your audience",since:"",src:"tools"},
+ {id:"oldthumbs",card:"dynthumb",n:"Ask Studio revisa miniaturas de videos antiguos",st:"nodate",where:"YouTube Studio",q:"run in the background to review your older videos to suggest and test refreshed thumbnails",since:"",src:"tools"},
+ {id:"convedit",card:"convedit",n:"Editor conversacional",st:"nodate",where:"Shorts y YouTube Create",q:"conversational editing assistant for both Shorts and the YouTube Create app",since:"",src:"tools"},
+ {id:"askshop",card:"askshop",n:"Ask YouTube como asistente de compra",st:"nodate",where:"Sin país indicado · móvil y voz en TV",q:"We're launching new capabilities to Ask YouTube to make your shopping journey easier.",since:"",src:"viewer"},
+ {id:"paidcomm",card:"paidcomm",n:"Espacios solo para miembros",st:"nodate",where:"Sin detalle",q:"from members-only spaces to AI-powered comment moderation",since:"",src:"main"},
+ {id:"livedub",card:"livedub",n:"Doblaje automático en directos",st:"y2027",where:"Piloto · YouTube no nombra idiomas",q:"we're piloting Live auto dubbing, starting in early 2027",since:"",src:"live"},
+ {id:"golive",card:"showdowns",n:"Go Live Together con matchmaking",st:"y2027",where:"Directos",q:"In early 2027, you'll be able to either browse and select from creators who are currently streaming, or jump into a quick match queue",since:"",src:"live"},
+ {id:"showdowns",card:"showdowns",n:"Live showdowns",st:"y2027",where:"Directos",q:"an interactive format that turns fan funding into a team challenge, coming in 2027",since:"",src:"live"},
+ {id:"gif",card:"gif",n:"Comentarios con GIF",st:"unofficial",where:"Solo reportado por prensa",q:"No aparece en los posts oficiales del 23 de septiembre",since:"",src:null},
+ {id:"script",card:"script",n:"Asistente de guion",st:"unofficial",where:"Solo reportado por prensa",q:"No aparece en los posts oficiales del 23 de septiembre",since:"",src:null}
+];
+const MOVES=[
+ {d:"2026-09-28",t:"Arranca el seguimiento diario. Sin publicaciones oficiales nuevas desde el 23 de septiembre. Fechas alineadas a las palabras exactas de YouTube: Custom Feeds pasa de 'octubre' (prensa) a 'pronto, solo EE. UU.'; miniaturas dinámicas y editor conversacional pasan a 'sin fecha'; comentarios con GIF y asistente de guion quedan marcados sin anuncio oficial."},
+ {d:"2026-09-23",t:"Made On YouTube 2026 en Nueva York: YouTube publica 8 posts oficiales. Series de Shorts empiezan a desplegarse ese mismo día."}
+];
+/* ===== FIN TRACKER DATA ===== */
+
 const OF="of",IND="ind",PR="pr",ES="es";
 const A=[
 {id:"abvideo",cat:"studio",when:"soon",whenL:"Próximamente · vídeo largo",rel:3,t:"Pruebas A/B de vídeo: hasta tres cortes",
@@ -455,10 +569,13 @@ const A=[
 const CAT={studio:"Studio e IA",dinero:"Monetización",live:"Directos",shorts:"Shorts y TV",descubrir:"Descubrimiento",podcast:"Podcast y música",comunidad:"Comunidad y seguridad"};
 const RELL={3:"alta",2:"media",1:"baja"};
 const SRCL={of:"Oficial",ind:"Industria",pr:"Prensa",es:"Español"};
+const WHEN={live:"now",rolling:"now",testing:"soon",soon:"soon",nodate:"soon",y2027:"later",unofficial:"soon"};
+A.forEach(a=>{const r=TRK.find(x=>x.card===a.id);if(r){a.when=WHEN[r.st];a.st=r.st;}});
+function pillFor(a){const r=TRK.find(x=>x.card===a.id);return r?`<span class="st ${r.st}">${STATUS[r.st].l}</span>`:`<span class="pill ${a.when}">${a.whenL}</span>`;}
 const grid=document.getElementById("grid");
 grid.innerHTML=A.map(a=>`
 <article class="card" id="c-${a.id}" data-rel="${a.rel}" data-cat="${a.cat}" data-when="${a.when}">
-  <div class="row"><div class="left"><span class="tag cat">${CAT[a.cat]}</span><span class="pill ${a.when}">${a.whenL}</span></div><span class="rel" data-r="${a.rel}" title="Relevancia para nosotros: ${RELL[a.rel]}"><i></i><i></i><i></i> ${RELL[a.rel]}</span></div>
+  <div class="row"><div class="left"><span class="tag cat">${CAT[a.cat]}</span>${pillFor(a)}</div><span class="rel" data-r="${a.rel}" title="Relevancia para nosotros: ${RELL[a.rel]}"><i></i><i></i><i></i> ${RELL[a.rel]}</span></div>
   <h3>${a.t}</h3>
   <p class="what">${a.w}</p>
   <p class="us"><b>Para nosotros</b>${a.u}</p>
@@ -483,4 +600,26 @@ document.querySelectorAll(".fgroup").forEach(g=>{
   }));
 });
 apply();
+
+(function(){
+  const fmt=d=>{if(!d)return"—";const[y,m,dd]=d.split("-");const M=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];return (+dd)+" "+M[+m-1]+" "+y};
+  document.getElementById("trk-date").textContent=fmt(TRK_DATE);
+  const order=["live","rolling","testing","soon","nodate","y2027","unofficial"];
+  const groups=[["Disponible ya",["live","rolling"]],["En pruebas",["testing"]],["Por venir en 2026",["soon"]],["Anunciado sin fecha",["nodate"]],["2027",["y2027"]],["No aparece en fuentes oficiales",["unofficial"]]];
+  const cnt=document.getElementById("trk-counts");
+  cnt.innerHTML=groups.map(([g,sts])=>`<div class="trk-count"><div class="v">${TRK.filter(r=>sts.includes(r.st)).length}</div><div class="l">${g}</div></div>`).join("");
+  document.getElementById("trk-moves").innerHTML=MOVES.map((m,i)=>`<li class="${i===0?"latest":""}"><time>${fmt(m.d)}</time><span>${m.t}</span></li>`).join("");
+  const tb=document.querySelector("#trk-table tbody");
+  tb.innerHTML=groups.map(([g,sts])=>{
+    const rows=TRK.filter(r=>sts.includes(r.st));
+    if(!rows.length)return"";
+    return `<tr class="grp"><td colspan="5">${g}</td></tr>`+rows.map(r=>`<tr>
+      <td class="fn"><b>${r.n}</b>${r.card?`<br><a href="#c-${r.card}">Ver tarjeta</a>`:""}</td>
+      <td><span class="st ${r.st}">${STATUS[r.st].l}</span></td>
+      <td>${r.where}</td>
+      <td class="q">${r.src?`<a href="${SRC[r.src]}">“${r.q}”</a>`:r.q}</td>
+      <td class="since">${r.since?fmt(r.since):"—"}</td></tr>`).join("");
+  }).join("");
+})();
+
 </script>
