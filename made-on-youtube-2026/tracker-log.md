@@ -14,7 +14,7 @@ Artifact: https://claude.ai/artifact/5mSa77SWcB6sGDeV1w1pDi · archivo: made-on-
 
 ## Qué se movió (más reciente primero)
 
-- **2026-09-29** · Sin cambios oficiales. Único post nuevo en el RSS: Mark Rober y aulas de ciencia (no toca el tracker). Ninguna frase de disponibilidad cambió en los 6 posts del 23 sep. Sin transiciones por calendario; la próxima es el 4 nov (Amazon en India y Brasil).
+- **2026-09-30** · Sin cambios oficiales. Posts nuevos en el RSS: Mark Rober y aulas de ciencia (29 sep), detrás de cámaras de Made On YouTube 2026 (29 sep, sin fechas ni disponibilidad nuevas) y desfile de Victoria's Secret (30 sep, activación de compras de ese evento, no cambia funciones del tracker). Ninguna frase de disponibilidad cambió en los 6 posts del 23 sep. Sin transiciones por calendario; la próxima es el 4 nov (Amazon en India y Brasil).
 - **2026-09-28** · El tracker avanza con el calendario. Se abrió la ventana de 4 funciones con fecha de fin de 2026: afiliados a 35 países, Amazon en India y Brasil, detección de semejanza en móvil y con voz, Watch With en videos largos.
 - **2026-09-28** · Arranca el seguimiento diario. Sin publicaciones oficiales nuevas desde el 23 sep (RSS de blog.youtube). Fechas alineadas a las palabras exactas de YouTube: Custom Feeds pasa de "octubre" (prensa) a "pronto, solo EE. UU."; miniaturas dinámicas y editor conversacional pasan a "sin fecha"; comentarios con GIF y asistente de guion quedan marcados sin anuncio oficial.
 - **2026-09-28** · Se quitaron del front end las notas internas: "Qué se movió", la regla de lectura de fechas, pendientes de fuentes ("sin pieza al corte"), "verificar antes de citar" y notas de cobertura en tarjetas.
