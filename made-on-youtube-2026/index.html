@@ -408,7 +408,7 @@ table.trk td.since{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:
 <script>
 
 /* ===== TRACKER DATA · actualizar cada día solo con fuentes oficiales ===== */
-const TRK_DATE="2026-10-24";
+const TRK_DATE="2026-10-27";
 const SRC={
  tools:"https://blog.youtube/news-and-events/made-on-youtube-new-tools-power-creation-journey/",
  main:"https://blog.youtube/news-and-events/innovation-youtube-era-made-on-viewers-creators/",
@@ -420,7 +420,8 @@ const SRC={
  coachella:"https://blog.youtube/news-and-events/made-on-youtube-coachella-exclusively-stream-youtube-2030/",
  thumbs:"https://blog.youtube/news-and-events/youtube-studio-custom-thumbnail-updates/",
  io:"https://blog.youtube/news-and-events/youtube-news-google-io-2026/",
- mo25:"https://blog.youtube/news-and-events/made-on-youtube-2025/"
+ mo25:"https://blog.youtube/news-and-events/made-on-youtube-2025/",
+ micro:"https://blog.youtube/culture-and-trends/the-evolution-of-web-series-on-youtube-microdramas/"
 };
 const STATUS={
  live:{l:"Disponible",g:"Disponible ya"},
@@ -439,6 +440,7 @@ const TODAY=(()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMont
 function eff(r){if(r.we&&(r.st==="soon"||r.st==="y2027")){if(TODAY>r.we)return"due";if(r.ws&&TODAY>=r.ws)return"window";}return r.st;}
 const TRK=[
  {id:"shortsseries",card:"shortsseries",n:"Series de Shorts (temporadas y episodios)",st:"rolling",where:"Creadores · web, móvil y TV · sin países ni requisitos indicados",q:"Starting today, Shorts series is rolling out to creators, across web, mobile, and TV.",since:"2026-09-23",src:"shorts"},
+ {id:"membersepisodes",card:null,n:"Episodios solo para miembros en series de Shorts: nueva experiencia en móvil",st:"soon",ws:"2026-10-27",we:"2026-12-08",where:"Móvil · sin países indicados",q:"In the coming weeks, we'll revamp the viewer experience for members-only episodes on mobile.",since:"",src:"micro"},
  {id:"askstudio",card:"askstudio",n:"Ask Studio revisa borradores",st:"live",where:"YouTube Studio · sin país indicado",q:"Creators can now use Studio to get personalized guidance on early drafts.",since:"2026-09-23",src:"main"},
  {id:"aithumb",card:"aithumb",n:"Miniaturas con IA al estilo del canal",st:"live",where:"Ask Studio, videos largos · sin país indicado",q:"Simply ask for a thumbnail for your latest video. / generate channel-matched thumbnails",since:"2026-07-24",src:"thumbs"},
  {id:"shortsthumb",card:null,n:"Miniaturas personalizadas en Shorts",st:"rolling",where:"Programa de Partners primero",q:"We'll expand this to more creators over time.",since:"2026-07-24",src:"thumbs"},
