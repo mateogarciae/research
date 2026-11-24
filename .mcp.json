@@ -5,7 +5,7 @@
       "url": "https://mcp.bentonow.com/mcp",
       "headers": {
         "X-Bento-Publishable-Key": "${BENTO_PUBLISHABLE_KEY}",
-        "X-Bento-Secret-Key": "${BENTO_SECRET_KEY}",
+        "X-Bento-Secret-Key": "${BENTO_SECRET_KEY:-proxy-injected}",
         "X-Bento-Site-UUID": "${BENTO_SITE_UUID}"
       }
     }
