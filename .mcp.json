@@ -1,12 +1,12 @@
 {
   "mcpServers": {
     "bento": {
-      "command": "npx",
-      "args": ["-y", "@bentonow/bento-mcp"],
-      "env": {
-        "BENTO_PUBLISHABLE_KEY": "${BENTO_PUBLISHABLE_KEY:-injected-by-network-proxy}",
-        "BENTO_SECRET_KEY": "${BENTO_SECRET_KEY:-injected-by-network-proxy}",
-        "BENTO_SITE_UUID": "${BENTO_SITE_UUID}"
+      "type": "http",
+      "url": "https://mcp.bentonow.com/mcp",
+      "headers": {
+        "X-Bento-Publishable-Key": "${BENTO_PUBLISHABLE_KEY}",
+        "X-Bento-Secret-Key": "${BENTO_SECRET_KEY}",
+        "X-Bento-Site-UUID": "${BENTO_SITE_UUID}"
       }
     }
   }
